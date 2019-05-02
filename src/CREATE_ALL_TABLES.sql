@@ -147,17 +147,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CS307_Project`.`Player`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `CS307_Project`.`Player` ;
-
-CREATE TABLE IF NOT EXISTS `CS307_Project`.`Player` (
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `CS307_Project`.`user`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `CS307_Project`.`user` ;
