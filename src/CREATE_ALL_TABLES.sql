@@ -53,22 +53,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CS307_Project`.`Player`
+-- Table `CS307_Project`.`track`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `CS307_Project`.`Player` ;
+DROP TABLE IF EXISTS `CS307_Project`.`track` ;
 
-CREATE TABLE IF NOT EXISTS `CS307_Project`.`Player` (
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `CS307_Project`.`Track`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `CS307_Project`.`Track` ;
-
-CREATE TABLE IF NOT EXISTS `CS307_Project`.`Track` (
+CREATE TABLE IF NOT EXISTS `CS307_Project`.`track` (
   `id` INT NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `album_id` INT NOT NULL,
@@ -79,14 +68,14 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`Track` (
   `hot` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_Track_album_idx` (`album_id` ASC) VISIBLE,
-  INDEX `fk_Track_artist_band1_idx` (`artist_band_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Track_album`
+  INDEX `fk_track_album_idx` (`album_id` ASC) VISIBLE,
+  INDEX `fk_track_artist_band1_idx` (`artist_band_id` ASC) VISIBLE,
+  CONSTRAINT `fk_track_album`
     FOREIGN KEY (`album_id`)
     REFERENCES `CS307_Project`.`album` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Track_artist_band1`
+  CONSTRAINT `fk_track_artist_band1`
     FOREIGN KEY (`artist_band_id`)
     REFERENCES `CS307_Project`.`artist_band` (`artist_band_id`)
     ON DELETE NO ACTION
@@ -211,10 +200,10 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`song` (
   `skip_count` INT NOT NULL DEFAULT 0,
   `path` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_song_Track1_idx` (`track_id` ASC) VISIBLE,
-  CONSTRAINT `fk_song_Track1`
+  INDEX `fk_song_track1_idx` (`track_id` ASC) VISIBLE,
+  CONSTRAINT `fk_song_track1`
     FOREIGN KEY (`track_id`)
-    REFERENCES `CS307_Project`.`Track` (`id`)
+    REFERENCES `CS307_Project`.`track` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
