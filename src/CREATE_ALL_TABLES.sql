@@ -205,9 +205,9 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`song` (
   `track_id` VARCHAR(45) NULL,
   `rate` CHAR(1) NULL,
   `add_date` DATETIME(6) NULL,
-  `last_play_date` DATETIME(6) NOT NULL DEFAULT 2000-01-01 00:00:00,
+  `last_play_date` DATETIME(6) NOT NULL DEFAULT '2000-01-01 00:00:00',
   `play_count` INT NOT NULL DEFAULT 0,
-  `last_skip_date` DATETIME(6) NOT NULL DEFAULT 2000-01-01 00:00:00,
+  `last_skip_date` DATETIME(6) NOT NULL DEFAULT '2000-01-01 00:00:00',
   `skip_count` INT NOT NULL DEFAULT 0,
   `path` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`),
@@ -244,9 +244,10 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`user_create_list` (
   `library_id` INT NOT NULL,
   `list_id` INT NOT NULL,
   `rating` CHAR(1) NULL,
+  `share` BINARY(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`library_id`, `list_id`),
-  INDEX `fk_library_has_list_list1_idx` (`list_id` ASC) VISIBLE,
-  INDEX `fk_library_has_list_library1_idx` (`library_id` ASC) VISIBLE,
+  INDEX `fk_library_has_list_list1_idx` (`list_id` ASC),
+  INDEX `fk_library_has_list_library1_idx` (`library_id` ASC),
   CONSTRAINT `fk_library_has_list_library10`
     FOREIGN KEY (`library_id`)
     REFERENCES `CS307_Project`.`user` (`id`)
@@ -270,8 +271,8 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`user_has_list` (
   `list_id` INT NOT NULL,
   `rating` CHAR(1) NULL,
   PRIMARY KEY (`library_id`, `list_id`),
-  INDEX `fk_library_has_list_list1_idx` (`list_id` ASC) VISIBLE,
-  INDEX `fk_library_has_list_library1_idx` (`library_id` ASC) VISIBLE,
+  INDEX `fk_library_has_list_list1_idx` (`list_id` ASC),
+  INDEX `fk_library_has_list_library1_idx` (`library_id` ASC),
   CONSTRAINT `fk_library_has_list_library1`
     FOREIGN KEY (`library_id`)
     REFERENCES `CS307_Project`.`user` (`id`)
