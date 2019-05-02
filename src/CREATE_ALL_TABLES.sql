@@ -39,11 +39,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `CS307_Project`.`Artist`
+-- Table `CS307_Project`.`artist`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `CS307_Project`.`Artist` ;
+DROP TABLE IF EXISTS `CS307_Project`.`artist` ;
 
-CREATE TABLE IF NOT EXISTS `CS307_Project`.`Artist` (
+CREATE TABLE IF NOT EXISTS `CS307_Project`.`artist` (
   `id` INT NOT NULL,
   `first_name` VARCHAR(45) NULL,
   `surname` VARCHAR(45) NOT NULL,
@@ -105,12 +105,12 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`artist_band` (
   `band_id` INT NULL,
   `record_company_id` INT NULL,
   PRIMARY KEY (`artist_band_id`),
-  INDEX `fk_artist_in_band_Artist1_idx` (`artist_id` ASC) VISIBLE,
+  INDEX `fk_artist_in_band_artist1_idx` (`artist_id` ASC) VISIBLE,
   INDEX `fk_artist_in_band_band1_idx` (`band_id` ASC) VISIBLE,
   INDEX `fk_artist_band_record_company1_idx` (`record_company_id` ASC) VISIBLE,
-  CONSTRAINT `fk_artist_in_band_Artist1`
+  CONSTRAINT `fk_artist_in_band_artist1`
     FOREIGN KEY (`artist_id`)
-    REFERENCES `CS307_Project`.`Artist` (`first_name`)
+    REFERENCES `CS307_Project`.`artist` (`first_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_artist_in_band_band1`
