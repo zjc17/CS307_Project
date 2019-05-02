@@ -18,19 +18,19 @@ CREATE SCHEMA IF NOT EXISTS `CS307_Project` DEFAULT CHARACTER SET utf8 ;
 USE `CS307_Project` ;
 
 -- -----------------------------------------------------
--- Table `CS307_Project`.`Album`
+-- Table `CS307_Project`.`album`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `CS307_Project`.`Album` ;
+DROP TABLE IF EXISTS `CS307_Project`.`album` ;
 
-CREATE TABLE IF NOT EXISTS `CS307_Project`.`Album` (
+CREATE TABLE IF NOT EXISTS `CS307_Project`.`album` (
   `id` INT NOT NULL,
   `artist_band_id` INT NULL,
   `title` VARCHAR(45) NULL,
   `rating` CHAR(1) NULL,
   `hot` INT NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  INDEX `fk_Album_artist_band1_idx` (`artist_band_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Album_artist_band1`
+  INDEX `fk_album_artist_band1_idx` (`artist_band_id` ASC) VISIBLE,
+  CONSTRAINT `fk_album_artist_band1`
     FOREIGN KEY (`artist_band_id`)
     REFERENCES `CS307_Project`.`artist_band` (`artist_band_id`)
     ON DELETE NO ACTION
@@ -79,11 +79,11 @@ CREATE TABLE IF NOT EXISTS `CS307_Project`.`Track` (
   `hot` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_Track_Album_idx` (`album_id` ASC) VISIBLE,
+  INDEX `fk_Track_album_idx` (`album_id` ASC) VISIBLE,
   INDEX `fk_Track_artist_band1_idx` (`artist_band_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Track_Album`
+  CONSTRAINT `fk_Track_album`
     FOREIGN KEY (`album_id`)
-    REFERENCES `CS307_Project`.`Album` (`id`)
+    REFERENCES `CS307_Project`.`album` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Track_artist_band1`
