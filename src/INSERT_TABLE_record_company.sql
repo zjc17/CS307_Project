@@ -1,0 +1,13 @@
+ALTER TABLE record_company AUTO_INCREMENT=1;
+START TRANSACTION;
+INSERT INTO record_company (name, country) VALUES ('Company_0', 'cn');
+INSERT INTO record_company (name, country) VALUES ('Company_1', 'cn');
+INSERT INTO record_company (name, country) VALUES ('Company_2', 'cn');
+INSERT INTO record_company (name, country) VALUES ('Company_3', 'cn');
+INSERT INTO record_company (name, country) VALUES ('Company_4', 'cn');
+INSERT INTO record_company (name, country) VALUES ('Company_5', 'us');
+INSERT INTO record_company (name, country) VALUES ('Company_6', 'us');
+INSERT INTO record_company (name, country) VALUES ('Company_7', 'us');
+INSERT INTO record_company (name, country) VALUES ('Company_8', 'us');
+INSERT INTO record_company (name, country) VALUES ('Company_9', 'us');
+COMMIT;
