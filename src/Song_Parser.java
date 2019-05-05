@@ -32,22 +32,31 @@ public abstract class Song_Parser {
       MP3AudioHeader header = mp3File.getMP3AudioHeader(); // mp3文件头部信息
       int length = header.getTrackLength();
       System.out.println("Length: " + length / 60 + ":" + length % 60 + "sec"); // 歌曲时长
-      this.song_name = filePath;
+//      this.song_name = filePath;
     } catch (Exception e) {
 
     }
   }
 
-  public abstract String getArtist_name();
+  public abstract String getArtist();
 
+  public abstract String getSongName();
+
+  public abstract String getAlbum();
 
   public abstract String getGenre();
 
-  public abstract String getLength();
+  public abstract int getLength();
 
-  public abstract String getSize();
+  public abstract int getSize();
 
-  public abstract String getSong_name();
+  public abstract String getBPM();
 
-  public abstract String getTrack_order();
+  public abstract String getTrackOrder();
+
+  public abstract int getSampleRate();
+
+  public abstract String getChannels();
+
+  public abstract boolean isVariableBitRate();
 }

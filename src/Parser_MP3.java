@@ -5,18 +5,41 @@ import org.jaudiotagger.audio.mp3.MP3File;
 import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 
-public class Parser_MP3 extends Song_Parser{
+public class Parser_MP3 extends Song_Parser {
 
-  private String song_name;
-  private String artist_name;
+  private String songName;
+  private String album;
+  private String artist;
+  private String albumArtist;
+  private String composer;
   private String genre;
-  private String size;
-  private String length;
-  private String track_order;
+
+  private String year;
+  private int size;
+  private int length;
+
+  private String discOrder;
+  private String discTotal;
+  private String trackOrder;
+  private String trackTotal;
+
+  private String comments;
+
+  private int sampleRate;
+  private String channels;
+  private boolean isVariableBitRate;
+  private String bpm;
+  private String grouping;
+
+
+  private String lyric;
+  private String lyricist;
+//  private int
 
   public static void main(String[] args) {
-    String path = "C:\\Users\\acezj\\Desktop\\test2.mp3";
+    String path = "C:\\Users\\acezj\\Desktop\\test3.mp3";
     Parser_MP3 parser_mp3 = new Parser_MP3(path);
+    System.out.println(parser_mp3);
   }
 
   public Parser_MP3(String filePath) {
@@ -24,32 +47,54 @@ public class Parser_MP3 extends Song_Parser{
     try {
       File file = new File(filePath);
       MP3File mp3File = (MP3File) AudioFileIO.read(file);
-      MP3AudioHeader audioHeader = (MP3AudioHeader) mp3File.getAudioHeader();
-      this.length = audioHeader.getTrackLength();
-      System.out.println("getTrackLength: " + );
-      System.out.println("getSampleRateAsNumber: " + audioHeader.getSampleRateAsNumber());
-      System.out.println("getChannels: " + audioHeader.getChannels());
-      System.out.println("isVariableBitRate: " + audioHeader.isVariableBitRate());
-      AbstractID3v2Tag v2tag = mp3File.getID3v2Tag();
-      //String artist = v2tag.getFirst(ID3v24Frames.FRAME_ID_ARTIST);
-      //String album = v2tag.getFirst(ID3v24Frames.FRAME_ID_ALBUM);
-      String artist = v2tag.getFirst(FieldKey.ARTIST);
-      String album = v2tag.getFirst(FieldKey.ALBUM);
-      String songName = v2tag.getFirst(FieldKey.TITLE);
-      System.out.println("album: " + album); // 专辑名
-      System.out.println("singer: " + artist); // 歌手名
-      System.out.println("songName: " + songName); // 歌名
-      MP3AudioHeader header = mp3File.getMP3AudioHeader(); // mp3文件头部信息
-      int length = header.getTrackLength();
-      System.out.println("Length: " + length / 60 + ":" + length % 60 + "sec"); // 歌曲时长
-    } catch (Exception e) {
+      MP3AudioHeader header = mp3File.getMP3AudioHeader();
+      this.length = header.getTrackLength();
+      this.sampleRate = header.getSampleRateAsNumber();
+      this.channels = header.getChannels();
+      this.isVariableBitRate = header.isVariableBitRate();
 
+      /* 使用 ID3v2 进行解析 */
+      AbstractID3v2Tag v2tag = mp3File.getID3v2Tag();
+      /* Song Info. */
+      this.songName = v2tag.getFirst(FieldKey.TITLE);
+      this.artist = v2tag.getFirst(FieldKey.ARTIST);
+      this.album = v2tag.getFirst(FieldKey.ALBUM);
+      this.albumArtist = v2tag.getFirst(FieldKey.ALBUM_ARTIST);
+      this.composer = v2tag.getFirst(FieldKey.COMPOSER);
+      this.grouping = v2tag.getFirst(FieldKey.GROUPING);
+      this.genre = v2tag.getFirst(FieldKey.GENRE);
+      this.year = v2tag.getFirst(FieldKey.YEAR);
+      this.trackOrder = v2tag.getFirst(FieldKey.TRACK);
+      this.trackTotal = v2tag.getFirst(FieldKey.TRACK_TOTAL);
+      this.discOrder = v2tag.getFirst(FieldKey.DISC_NO);
+      this.discTotal = v2tag.getFirst(FieldKey.DISC_TOTAL);
+      this.bpm = v2tag.getFirst(FieldKey.BPM);
+      this.comments = v2tag.getFirst(FieldKey.COMMENT);
+
+      /* Artwork */
+
+      /* Lyrics */
+      this.lyric = v2tag.getFirst(FieldKey.LYRICS);
+      this.lyricist = v2tag.getFirst(FieldKey.LYRICIST);
+      /* Option */
+      /* **********************************************
+       * SKIP
+       ********************************************** */
+      /* Sorting */
+
+
+    } catch (Exception e) {
     }
   }
 
   @Override
-  public String getArtist_name() {
-    return this.artist_name;
+  public String getArtist() {
+    return this.artist;
+  }
+
+  @Override
+  public String getAlbum() {
+    return this.album;
   }
 
   @Override
@@ -58,28 +103,61 @@ public class Parser_MP3 extends Song_Parser{
   }
 
   @Override
-  public String getLength() {
+  public int getLength() {
     return this.length;
   }
 
   @Override
-  public String getSize() {
+  public int getSize() {
     return this.size;
   }
 
   @Override
-  public String getSong_name() {
-    return this.song_name;
+  public String getBPM() {
+    return this.bpm;
   }
 
   @Override
-  public String getTrack_order() {
-    return this.track_order;
+  public String getSongName() {
+    return this.songName;
+  }
+
+  @Override
+  public String getTrackOrder() {
+    return this.trackOrder;
+  }
+
+  @Override
+  public int getSampleRate() {
+    return this.sampleRate;
+  }
+
+  @Override
+  public String getChannels() {
+    return this.channels;
+  }
+
+  @Override
+  public boolean isVariableBitRate() {
+    return isVariableBitRate;
   }
 
   @Override
   public String toString() {
-    return super.toString();
+    StringBuilder s = new StringBuilder();
+    s.append("\nartist: " + artist);
+    s.append("\nalbum: " + album);
+    s.append("\nalbum artist: " + albumArtist);
+    s.append("\ncomposer: " + composer);
+    s.append("\ngrouping: " + grouping);
+    s.append("\ngenre: " + genre);
+    s.append("\nyear: " + year);
+    s.append("\ntrack: " + trackOrder + " of " + trackTotal);
+    s.append("\ndisc: " + discOrder + " of " + discTotal);
+    s.append("\nBPM: " + bpm);
+    s.append("\ncomments: " + comments);
+    return s.toString();
   }
+
 
 }
