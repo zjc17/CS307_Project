@@ -7,12 +7,7 @@ import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 
 public abstract class Song_Parser {
 
-  private String song_name;
-  private String artist_name;
-  private String genre;
-  private String size;
-  private String length;
-  private String track_order;
+
 
   public Song_Parser(String filePath) {
     try {
@@ -43,27 +38,16 @@ public abstract class Song_Parser {
     }
   }
 
-  public String getArtist_name() {
-    return artist_name;
-  }
+  public abstract String getArtist_name();
 
-  public String getGenre() {
-    return genre;
-  }
 
-  public String getLength() {
-    return length;
-  }
+  public abstract String getGenre();
 
-  public String getSize() {
-    return size;
-  }
+  public abstract String getLength();
 
-  public String getSong_name() {
-    return song_name;
-  }
+  public abstract String getSize();
 
-  public String getTrack_order() {
-    return track_order;
-  }
+  public abstract String getSong_name();
+
+  public abstract String getTrack_order();
 }

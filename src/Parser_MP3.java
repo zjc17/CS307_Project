@@ -7,28 +7,26 @@ import org.jaudiotagger.tag.id3.AbstractID3v2Tag;
 
 public class Parser_MP3 extends Song_Parser{
 
-  public Parser_MP3(String filePath) {
-    super(filePath);
-  }
-
-  @Override
-  public String getArtist_name() {
-    return super.getArtist_name();
-  }
-
-  @Override
-  public String toString() {
-    return super.toString();
-  }
+  private String song_name;
+  private String artist_name;
+  private String genre;
+  private String size;
+  private String length;
+  private String track_order;
 
   public static void main(String[] args) {
-
     String path = "C:\\Users\\acezj\\Desktop\\test2.mp3";
+    Parser_MP3 parser_mp3 = new Parser_MP3(path);
+  }
+
+  public Parser_MP3(String filePath) {
+    super(null);
     try {
-      File file = new File(path);
+      File file = new File(filePath);
       MP3File mp3File = (MP3File) AudioFileIO.read(file);
       MP3AudioHeader audioHeader = (MP3AudioHeader) mp3File.getAudioHeader();
-      System.out.println("getTrackLength: " + audioHeader.getTrackLength());
+      this.length = audioHeader.getTrackLength();
+      System.out.println("getTrackLength: " + );
       System.out.println("getSampleRateAsNumber: " + audioHeader.getSampleRateAsNumber());
       System.out.println("getChannels: " + audioHeader.getChannels());
       System.out.println("isVariableBitRate: " + audioHeader.isVariableBitRate());
@@ -47,6 +45,41 @@ public class Parser_MP3 extends Song_Parser{
     } catch (Exception e) {
 
     }
-
   }
+
+  @Override
+  public String getArtist_name() {
+    return this.artist_name;
+  }
+
+  @Override
+  public String getGenre() {
+    return this.genre;
+  }
+
+  @Override
+  public String getLength() {
+    return this.length;
+  }
+
+  @Override
+  public String getSize() {
+    return this.size;
+  }
+
+  @Override
+  public String getSong_name() {
+    return this.song_name;
+  }
+
+  @Override
+  public String getTrack_order() {
+    return this.track_order;
+  }
+
+  @Override
+  public String toString() {
+    return super.toString();
+  }
+
 }
