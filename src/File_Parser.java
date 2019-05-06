@@ -138,6 +138,11 @@ public class File_Parser extends Song_Parser{
   }
 
   @Override
+  public int getBitRate() {
+    return song_parser.getBitRate();
+  }
+
+  @Override
   public String getChannels() {
     return song_parser.getChannels();
   }
@@ -150,6 +155,16 @@ public class File_Parser extends Song_Parser{
   @Override
   public int getSize() {
     return song_parser.getSize();
+  }
+
+  @Override
+  public String getMpegVersion() {
+    return song_parser.getMpegVersion();
+  }
+
+  @Override
+  public String getMpegLayer() {
+    return song_parser.getMpegLayer();
   }
 
   @Override

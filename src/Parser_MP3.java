@@ -38,7 +38,10 @@ public class Parser_MP3 extends Song_Parser {
   private boolean isVariableBitRate;
   private int size;
   private String identifier;
+  private int bitRate;
 
+  private String MPEG_Version;
+  private String MPEG_Layer;
 
   private String lyric;
   private String lyricist;
@@ -62,6 +65,10 @@ public class Parser_MP3 extends Song_Parser {
       this.albumArtist = v2tag.getFirst(FieldKey.ALBUM_ARTIST);
       this.composer = v2tag.getFirst(FieldKey.COMPOSER);
       this.grouping = v2tag.getFirst(FieldKey.GROUPING);
+//      for (FieldKey fieldKey: FieldKey.values()) {
+//        System.out.println(fieldKey+"\t\t\t" + v2tag.getFirst(fieldKey));
+//      }
+      System.out.println(header.getMpegLayer());
       this.genre = v2tag.getFirst(FieldKey.GENRE);
       this.year = v2tag.getFirst(FieldKey.YEAR);
       this.trackOrder = v2tag.getFirst(FieldKey.TRACK);
@@ -87,7 +94,9 @@ public class Parser_MP3 extends Song_Parser {
       /* File Info. */
       this.size = v2tag.getSize();
       this.identifier = v2tag.getFirst(ID3v24Frames.FRAME_ID_USER_DEFINED_INFO);
-
+      this.bitRate = (int)header.getBitRateAsNumber();
+      this.MPEG_Version = header.getMpegVersion();
+      this.MPEG_Layer = header.getMpegLayer();
     } catch (Exception e) {
     }
   }
@@ -203,6 +212,11 @@ public class Parser_MP3 extends Song_Parser {
   }
 
   @Override
+  public int getBitRate() {
+    return this.bitRate;
+  }
+
+  @Override
   public String getChannels() {
     return this.channels;
   }
@@ -215,6 +229,16 @@ public class Parser_MP3 extends Song_Parser {
   @Override
   public int getSize() {
     return this.size;
+  }
+
+  @Override
+  public String getMpegVersion() {
+    return this.MPEG_Version;
+  }
+
+  @Override
+  public String getMpegLayer() {
+    return this.MPEG_Layer;
   }
 
   @Override

@@ -44,11 +44,17 @@ public abstract class Song_Parser {
 
   public abstract int getSampleRate();
 
+  public abstract int getBitRate();
+
   public abstract String getChannels();
 
   public abstract boolean isVariableBitRate();
 
   public abstract int getSize();
+
+  public abstract String getMpegVersion();
+
+  public abstract String getMpegLayer();
 
   public abstract String getIdentifier();
 }
