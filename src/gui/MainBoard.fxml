@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane layoutY="110.0" prefHeight="590.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE">
@@ -24,8 +23,8 @@
                         <Text layoutX="90.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="歌曲" />
                         <Text layoutX="90.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="艺人" />
                         <Text layoutX="90.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="专辑" />
-                        <Text layoutX="63.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="专辑艺人" />
-                        <Text layoutX="83.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="作曲者" AnchorPane.rightAnchor="435.0" />
+                        <Text layoutX="63.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="专辑艺人" />
+                        <Text layoutX="83.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="作曲者" AnchorPane.rightAnchor="435.0" />
                         <Text layoutX="90.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="类型" AnchorPane.rightAnchor="435.33" />
                         <Text layoutX="90.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="年份" AnchorPane.rightAnchor="435.3333339691162" />
                         <Text layoutX="90.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="音轨" />
