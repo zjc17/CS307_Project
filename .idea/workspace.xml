@@ -2,107 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb9abc0b-95a9-436f-881a-06aa14d70f1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-console-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-datetime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-debug-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-errorhandling-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-file-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-file-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-file-l2-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-handle-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-interlocked-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-libraryloader-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-localization-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-memory-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-namedpipe-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-processenvironment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-processthreads-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-processthreads-l1-1-1.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-profile-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-synch-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-synch-l1-2-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-sysinfo-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-timezone-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-core-util-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-conio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-convert-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-environment-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-filesystem-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-heap-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-locale-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-math-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-multibyte-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-private-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-process-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-runtime-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-stdio-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-string-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-time-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/api-ms-win-crt-utility-l1-1-0.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/concrt140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/decora_sse.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/fxplugins.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/glass.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/glib-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/gstreamer-lite.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/javafx_font.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/javafx_iio.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/jfxmedia.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/jfxwebkit.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/msvcp140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/prism_common.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/prism_d3d.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/prism_sw.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/ucrtbase.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/bin/vcruntime140.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.base/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.base/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.base/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.controls/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.controls/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.controls/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.fxml/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.fxml/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.fxml/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.graphics/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.graphics/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.graphics/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.graphics/jpeg_fx.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/applecoreaudio.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/glib.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/gstreamer.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.media/libffi.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.swing/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.swing/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.swing/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/icu_web.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/libxml2.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/libxslt.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/legal/javafx.web/webkit.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx-swt.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.base.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.controls.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.fxml.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.graphics.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.media.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.swing.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.web.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/src.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MusicPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/MainBoard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CS307_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS307_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/DB_Writter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/DB_Writter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainBoard.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -187,26 +91,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MusicPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="152">
+              <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/MainBoard.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2869">
-              <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -254,8 +148,8 @@
         <option value="$PROJECT_DIR$/src/DB_Reader.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/DB_Writter.java" />
-        <option value="$PROJECT_DIR$/src/MusicPlayer.java" />
         <option value="$PROJECT_DIR$/src/gui/MainBoard.fxml" />
+        <option value="$PROJECT_DIR$/src/MusicPlayer.java" />
       </list>
     </option>
   </component>
@@ -286,12 +180,6 @@
             </path>
             <path>
               <item name="CS307_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS307_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS307_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -308,7 +196,7 @@
     <property name="Repository.Attach.Sources" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557151112702" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557156073563" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -337,7 +225,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.MusicPlayer">
     <configuration name="DB_Connector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DB_Connector" />
       <module name="CS307_Project" />
@@ -375,11 +263,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MusicPlayer" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.DB_Connector" />
         <item itemvalue="Application.File_Parser" />
         <item itemvalue="Application.Parser_MP3" />
-        <item itemvalue="Application.MusicPlayer" />
       </list>
     </recent_temporary>
   </component>
@@ -401,12 +289,12 @@
       <workItem from="1557023231544" duration="13743000" />
       <workItem from="1557057045157" duration="3605000" />
       <workItem from="1557112538874" duration="7432000" />
-      <workItem from="1557129612296" duration="18118000" />
+      <workItem from="1557129612296" duration="18453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50540000" />
+    <option name="totallyTimeSpent" value="50875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -419,10 +307,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4900285" visible="true" weight="0.19616205" />
-      <window_info id="Structure" order="1" sideWeight="0.5099715" side_tool="true" visible="true" weight="0.19616205" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49064448" visible="true" weight="0.19616205" />
+      <window_info id="Structure" order="1" sideWeight="0.5093555" side_tool="true" visible="true" weight="0.19616205" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -430,7 +317,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49573562" visible="true" weight="0.27027026" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49573562" weight="0.27027026" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3981289" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -458,13 +345,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.sql/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="1222" column="12" selection-start-line="1222" selection-start-column="12" selection-end-line="1222" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.sql/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
@@ -883,23 +763,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MusicPlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/MainBoard.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/javafx-sdk-11.0.2/lib/javafx.graphics.jar!/javafx/application/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MusicPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainBoard.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2869">
-          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
