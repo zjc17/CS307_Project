@@ -42,16 +42,6 @@ public class Parser_MP3 extends Song_Parser {
 
   private String lyric;
   private String lyricist;
-//  private int
-
-  public static void main(String[] args) {
-    String path = "C:\\Users\\acezj\\Desktop\\test3.mp3";
-    path = "F:\\Music\\王力宏 _ 张靓颖 - 另一个天堂.mp3";
-    path = "F:\\Music\\Justin Bieber _ Ludacris - Baby (Album Version).mp3";
-    path = "C:\\Users\\acezj\\Desktop\\1.mp3";
-    Parser_MP3 parser_mp3 = new Parser_MP3(path);
-    System.out.println(parser_mp3);
-  }
 
   public Parser_MP3(String filePath) {
     try {
@@ -235,19 +225,19 @@ public class Parser_MP3 extends Song_Parser {
   @Override
   public String toString() {
     StringBuilder s = new StringBuilder();
-//    s.append("\nsong name: " + songName);
-//    s.append("\n");
-//    s.append("\nartist: " + artist);
-//    s.append("\nalbum: " + album);
-//    s.append("\nalbum artist: " + albumArtist);
-//    s.append("\ncomposer: " + composer);
-//    s.append("\ngrouping: " + grouping);
-//    s.append("\ngenre: " + genre);
-//    s.append("\nyear: " + year);
-//    s.append("\ntrack: " + trackOrder + " of " + trackTotal);
-//    s.append("\ndisc: " + discOrder + " of " + discTotal);
-//    s.append("\nBPM: " + bpm);
-//    s.append("\ncomments: " + comments);
+    s.append("\nsong name: " + songName);
+    s.append("\n");
+    s.append("\nartist: " + artist);
+    s.append("\nalbum: " + album);
+    s.append("\nalbum artist: " + albumArtist);
+    s.append("\ncomposer: " + composer);
+    s.append("\ngrouping: " + grouping);
+    s.append("\ngenre: " + genre);
+    s.append("\nyear: " + year);
+    s.append("\ntrack: " + trackOrder + " of " + trackTotal);
+    s.append("\ndisc: " + discOrder + " of " + discTotal);
+    s.append("\nBPM: " + BPM);
+    s.append("\ncomments: " + comments);
     return s.toString();
   }
 

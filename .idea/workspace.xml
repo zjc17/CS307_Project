@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb9abc0b-95a9-436f-881a-06aa14d70f1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/acezj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/File_Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.27.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Database_Connector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/acezj.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/acezj.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS307_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS307_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/File_Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/File_Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Parser_MP3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Parser_MP3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Project_Design_2.mwb.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/Song_Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/Song_Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/test.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/test.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS307_Project/test.sqlite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS307_Project/test.sqlite.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/File_Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/File_Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser_MP3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser_MP3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Song_Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Song_Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.sqlite.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.sqlite.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,27 +29,114 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="test.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/Parser_MP3.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="2840">
+                    <caret line="213" selection-start-line="213" selection-end-line="213" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Parser_MP3.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Database_Connector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            <state relative-caret-position="342">
+              <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Parser_MP3#0;class#Parser_MP3#0" />
-                <element signature="method#toString#0;class#Parser_MP3#0" />
+                <element signature="e#331#332#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="method#getConnection#0;class#Database_Connector#0" />
+                <element signature="method#insertSongInfo#0;class#Database_Connector#0" />
+                <element signature="method#insertPictureInfo#0;class#Database_Connector#0" />
+                <element signature="method#insertAlbumInfo#0;class#Database_Connector#0" />
+                <element signature="method#insertArtistInfo#0;class#Database_Connector#0" />
+                <element signature="method#commit#0;class#Database_Connector#0" />
+                <element signature="method#close#0;class#Database_Connector#0" />
+                <element signature="method#test#0;class#Database_Connector#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/File_Parser.java">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+            <state relative-caret-position="-304">
+              <caret line="56" column="25" lean-forward="true" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_1.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" selection-start-line="5" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="60" lean-forward="true" selection-start-column="60" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -80,17 +173,22 @@
         <option value="$PROJECT_DIR$/src/MP3_Parser.java" />
         <option value="$PROJECT_DIR$/src/MusicPlayer.java" />
         <option value="$PROJECT_DIR$/src/GetMP3Info.java" />
-        <option value="$PROJECT_DIR$/src/File_Parser.java" />
         <option value="$PROJECT_DIR$/src/Song_Parser.java" />
         <option value="$PROJECT_DIR$/src/Parser_MP3.java" />
+        <option value="$PROJECT_DIR$/src/File_Parser.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_1.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_2.sql" />
+        <option value="$PROJECT_DIR$/src/Database_Connector.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="180" />
-    <option name="y" value="-22" />
+    <option name="x" value="428" />
+    <option name="y" value="-16" />
     <option name="width" value="1616" />
-    <option name="height" value="951" />
+    <option name="height" value="756" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -106,11 +204,6 @@
               <item name="CS307_Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS307_Project" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CS307_Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS307_Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -118,25 +211,28 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557040693929" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jaudiotagger-2.2.6-SNAPSHOT.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557120157946" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Github\CS307_Project\lib" />
+      <recent name="F:\Github\CS307_Project" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -151,7 +247,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.File_Parser">
+  <component name="RunManager" selected="Application.Database_Connector">
+    <configuration name="Database_Connector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Database_Connector" />
+      <module name="CS307_Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="File_Parser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="File_Parser" />
       <module name="CS307_Project" />
@@ -159,8 +262,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MP3_Parser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MP3_Parser" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="CS307_Project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,10 +285,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Database_Connector" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.File_Parser" />
         <item itemvalue="Application.Parser_MP3" />
         <item itemvalue="Application.MusicPlayer" />
-        <item itemvalue="Application.MP3_Parser" />
       </list>
     </recent_temporary>
   </component>
@@ -205,17 +309,19 @@
       <workItem from="1556940669024" duration="1111000" />
       <workItem from="1556941810840" duration="2013000" />
       <workItem from="1557023231544" duration="13743000" />
+      <workItem from="1557057045157" duration="3605000" />
+      <workItem from="1557112538874" duration="7432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21385000" />
+    <option name="totallyTimeSpent" value="32422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989605" visible="true" weight="0.19189766" />
-      <window_info id="Structure" order="1" sideWeight="0.5010395" side_tool="true" visible="true" weight="0.19189766" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.493763" visible="true" weight="0.19402985" />
+      <window_info id="Structure" order="1" sideWeight="0.50623703" side_tool="true" visible="true" weight="0.19402985" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -223,18 +329,19 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35135135" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39902082" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49573562" weight="0.35135135" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3981289" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="CheckStyle" order="7" />
+      <window_info anchor="bottom" id="CheckStyle" order="7" weight="0.32952183" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32848233" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5042644" side_tool="true" weight="0.35135135" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.4978678" weight="0.32848233" />
+      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.4978678" weight="0.32952183" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -243,7 +350,7 @@
       <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Database" order="8" visible="true" weight="0.18656716" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,13 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/File_Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/jaudiotagger-2.2.6-SNAPSHOT.jar!/org/jaudiotagger/tag/id3/ID3v24Frames.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -382,15 +482,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser_MP3.java">
+    <entry file="file://$PROJECT_DIR$/src/File_Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        <state relative-caret-position="19">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="e#1963#1964#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2314#2315#0" expanded="true" />
+            <element signature="e#2363#2364#0" expanded="true" />
+            <element signature="e#3110#3111#0" expanded="true" />
+            <element signature="e#3143#3144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/TmpFile/class_in.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/TmpFile/ClassroomBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Parser_MP3#0;class#Parser_MP3#0" />
-            <element signature="method#toString#0;class#Parser_MP3#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/TmpFile/TimeTable.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://d2c7a3e9-0e6d-4ef3-a443-9d209373d752/schema/main/table/song">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.sql/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="1222" column="12" selection-start-line="1222" selection-start-column="12" selection-end-line="1222" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d2c7a3e9-0e6d-4ef3-a443-9d209373d752/schema/main/table/picture">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.sql/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="56" column="25" lean-forward="true" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Database_Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="73" column="3" lean-forward="true" selection-start-line="73" selection-start-column="3" selection-end-line="73" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="method#getConnection#0;class#Database_Connector#0" />
+            <element signature="method#insertSongInfo#0;class#Database_Connector#0" />
+            <element signature="method#insertPictureInfo#0;class#Database_Connector#0" />
+            <element signature="method#insertAlbumInfo#0;class#Database_Connector#0" />
+            <element signature="method#insertArtistInfo#0;class#Database_Connector#0" />
+            <element signature="method#commit#0;class#Database_Connector#0" />
+            <element signature="method#close#0;class#Database_Connector#0" />
+            <element signature="method#test#0;class#Database_Connector#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d2c7a3e9-0e6d-4ef3-a443-9d209373d752/schema/main/table/artist.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d2c7a3e9-0e6d-4ef3-a443-9d209373d752/schema/main/table/artist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d2c7a3e9-0e6d-4ef3-a443-9d209373d752/schema/main/table/album">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser_MP3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2840">
+          <caret line="213" selection-start-line="213" selection-end-line="213" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="60" lean-forward="true" selection-start-column="60" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -459,7 +689,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jaudiotagger-2.2.6-SNAPSHOT</last-edited>
+          <last-edited>sqlite-jdbc-3.27.2.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
