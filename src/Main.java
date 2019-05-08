@@ -3,6 +3,17 @@ public class Main {
   private static long startTime, endTime;
 
   public static void main(String[] args) {
+//  check();
+    DB_Connector connector = new DB_Connector();
+    connector.getConnection();
+    DB_Writer writter = new DB_Writer(connector);
+    DB_Reader reader = new DB_Reader(connector, writter);
+    writter.insertCreditWithAlbum(1, 1,0);
+
+    connector.close();
+  }
+
+  private static void check() {
     String songName = "Song_1";
     String filePath = "filePath_1";
     String picPath = "picPath_1";
@@ -28,11 +39,11 @@ public class Main {
 
     DB_Connector connector = new DB_Connector();
     connector.getConnection();
-    DB_Writter writter = new DB_Writter(connector);
-    writter
-        .insertSongInfo(songName, filePath, picPath, album, year, artist, BPM, sampleRate, bitRate,
-            MPEG_Version, MPEG_Layer, channels, comments, fileSize, length, trackOrder, albumArtist,
-            composer, genre, trackTotal);
+    DB_Writer writter = new DB_Writer(connector);
+//    writter
+//        .insertSongInfo(songName, filePath, picPath, album, year, artist, BPM, sampleRate, bitRate,
+//            MPEG_Version, MPEG_Layer, channels, comments, fileSize, length, trackOrder, albumArtist,
+//            composer, genre, trackTotal);
     connector.close();
   }
 

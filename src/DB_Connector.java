@@ -76,11 +76,11 @@ public class DB_Connector {
   public static void main(String[] args) {
     DB_Connector connector = new DB_Connector();
     connector.getConnection();
-    DB_Writter db_writter = new DB_Writter(connector);
+    DB_Writer db_writer = new DB_Writer(connector);
     String name = "artist_1";
     Integer trackNumber = 10;
-//    db_writter.insertArtistInfo(name);
-    db_writter.insertAlbumInfo("album_1", 10, "artist_1");
+//    db_writer.insertArtistInfo(name);
+    db_writer.insertAlbum("album_1", 10);
     connector.close();
   }
 

@@ -1,4 +1,32 @@
 BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS "people";
+CREATE TABLE IF NOT EXISTS "people"
+(
+  "id"         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  "name"       TEXT    NOT NULL UNIQUE,
+  "picture_id" INTEGER,
+  FOREIGN KEY ("picture_id") REFERENCES "picture" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS "credit";
+CREATE TABLE IF NOT EXISTS "credit"
+(
+  "id"            INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  "people_id"     INTEGER NOT NULL,
+  "credit_as"     TEXT    NOT NULL,
+  "name_for_sort" TEXT,
+  UNIQUE ("people_id", "credit_as"),
+  FOREIGN KEY ("people_id") REFERENCES "people" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS "file_type";
+CREATE TABLE IF NOT EXISTS "file_type"
+(
+  "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  "name"  TEXT NOT NULL UNIQUE COLLATE NOCASE
+);
+
 DROP TABLE IF EXISTS "song";
 CREATE TABLE IF NOT EXISTS "song"
 (
@@ -6,10 +34,11 @@ CREATE TABLE IF NOT EXISTS "song"
   "name"           TEXT    NOT NULL UNIQUE,
   "name_for_sort"  TEXT,
   "file_path"      TEXT    NOT NULL,
+  "file_type_id"   INTEGER NOT NULL,
   "picture_id"     INTEGER,
   "album_id"       INTEGER,
   "year"           INTEGER,
-  "rating"         INTEGER DEFAULT 0,
+  "rating"         INTEGER          DEFAULT 0,
   "bpm"            NUMERIC,
   "sampleRate"     INTEGER,
   "bitRate"        INTEGER,
@@ -19,26 +48,46 @@ CREATE TABLE IF NOT EXISTS "song"
   "comments"       TEXT,
   "size"           INTEGER NOT NULL,
   "length"         INTEGER NOT NULL,
-  "date_modified"  TEXT NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime')),
-  "date_added"     TEXT NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime')),
-  "track_order"    INTEGER DEFAULT 0,
-  "play_count"     INTEGER DEFAULT 0,
+  "date_modified"  TEXT    NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')),
+  "date_added"     TEXT    NOT NULL DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')),
+  "track_order"    INTEGER          DEFAULT 0,
+  "play_count"     INTEGER          DEFAULT 0,
   "last_play_time" TEXT,
-  "skip_count"     INTEGER DEFAULT 0,
+  "skip_count"     INTEGER          DEFAULT 0,
   "last_skip_time" TEXT,
+  UNIQUE ("name", "file_type_id"),
+  FOREIGN KEY ("file_type_id") REFERENCES "file_type" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY ("album_id") REFERENCES "album" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY ("picture_id") REFERENCES "picture" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
-DROP TABLE IF EXISTS "song_has_artist";
-CREATE TABLE IF NOT EXISTS "song_has_artist"
+
+DROP TABLE IF EXISTS "credit_with_song";
+CREATE TABLE IF NOT EXISTS "credit_with_song"
 (
-  "artist_id" INTEGER NOT NULL,
+  "credit_id" INTEGER NOT NULL,
   "song_id"   INTEGER NOT NULL,
-  "order"     INTEGER NOT NULL DEFAULT 1 CHECK ("order" > 0),
-  FOREIGN KEY ("artist_id") REFERENCES "song" ("id") ON UPDATE CASCADE ON DELETE CASCADE,
-  PRIMARY KEY ("artist_id", "song_id"),
-  FOREIGN KEY ("song_id") REFERENCES "song" ("id") ON UPDATE CASCADE ON DELETE CASCADE
+  "order"     INTEGER NOT NULL DEFAULT 1,
+  FOREIGN KEY ("credit_id") REFERENCES "credit" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY ("song_id") REFERENCES "song" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+DROP TABLE IF EXISTS "picture";
+CREATE TABLE IF NOT EXISTS "picture"
+(
+  "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
+  "path"          TEXT NOT NULL,
+  "file_type_id"  INTEGER NOT NULL,
+  UNIQUE ("path", "file_type_id"),
+  FOREIGN KEY ("file_type_id") REFERENCES "file_type" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+DROP TABLE IF EXISTS "genre";
+CREATE TABLE IF NOT EXISTS "genre"
+(
+  "id"   INTEGER PRIMARY KEY AUTOINCREMENT,
+  "name" TEXT NOT NULL UNIQUE COLLATE NOCASE
+);
+
 DROP TABLE IF EXISTS "song_has_genre";
 CREATE TABLE IF NOT EXISTS "song_has_genre"
 (
@@ -48,35 +97,31 @@ CREATE TABLE IF NOT EXISTS "song_has_genre"
   FOREIGN KEY ("song_id") REFERENCES "song" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY ("song_id", "genre_id")
 );
-DROP TABLE IF EXISTS "song_has_composer";
-CREATE TABLE IF NOT EXISTS "song_has_composer"
-(
-  "composer_id" INTEGER NOT NULL,
-  "song_id"     INTEGER NOT NULL,
-  "order"       INTEGER NOT NULL DEFAULT 1 CHECK ("order" > 0),
-  PRIMARY KEY ("composer_id", "song_id"),
-  FOREIGN KEY ("composer_id") REFERENCES "composer" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY ("song_id") REFERENCES "song" ("id") ON DELETE CASCADE ON UPDATE CASCADE
-);
+
+
 DROP TABLE IF EXISTS "album";
 CREATE TABLE IF NOT EXISTS "album"
 (
-  "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
-  "name"          TEXT NOT NULL,
-  "artist_id"     INTEGER,
-  "name_for_sort" TEXT,
-  "picture_id"    INTEGER,
-  "track_number"  INTEGER CHECK (track_number > 0),
-  UNIQUE ("name", "artist_id"),
-  CONSTRAINT "fk_album_artist" FOREIGN KEY ("artist_id") REFERENCES "artist" ("id"),
+  "id"                 INTEGER PRIMARY KEY AUTOINCREMENT,
+  "name"               TEXT    NOT NULL UNIQUE COLLATE NOCASE,
+  "name_for_sort"      TEXT,
+  "picture_id"         INTEGER,
+  "track_total_number" INTEGER CHECK (track_total_number > 0), -- Total number
+  "compilation"        INTEGER NOT NULL DEFAULT 0,       -- 1 for true, and group by albumArtist otherwise group by artist
   CONSTRAINT "fk_album_picture" FOREIGN KEY ("picture_id") REFERENCES "picture" ("id")
 );
-DROP TABLE IF EXISTS "folder";
-CREATE TABLE IF NOT EXISTS "folder"
+
+DROP TABLE IF EXISTS "credit_with_album";
+CREATE TABLE IF NOT EXISTS "credit_with_album"
 (
-  "id"   INTEGER PRIMARY KEY AUTOINCREMENT,
-  "name" TEXT UNIQUE NOT NULL
+  "credit_id" INTEGER NOT NULL,
+  "album_id"  INTEGER NOT NULL,
+  order     INTEGER NOT NULL DEFAULT 1,
+  UNIQUE ("credit_id", "album_id"),
+  FOREIGN KEY ("credit_id") REFERENCES "credit" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY ("album_id") REFERENCES "album" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 DROP TABLE IF EXISTS "playlist_has_song";
 CREATE TABLE IF NOT EXISTS "playlist_has_song"
 (
@@ -87,15 +132,7 @@ CREATE TABLE IF NOT EXISTS "playlist_has_song"
   CONSTRAINT "fk_song" FOREIGN KEY ("song_id") REFERENCES "song" ("id"),
   CONSTRAINT "fk_playlist" FOREIGN KEY ("playlist_id") REFERENCES "playlist" ("id")
 );
-DROP TABLE IF EXISTS "artist";
-CREATE TABLE IF NOT EXISTS "artist"
-(
-  "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
-  "name"          TEXT NOT NULL UNIQUE,
-  "name_for_sort" TEXT,
-  "picture_id"    INTEGER,
-  CONSTRAINT "fk_artist_picture" FOREIGN KEY ("picture_id") REFERENCES "picture" ("id")
-);
+
 DROP TABLE IF EXISTS "playlist";
 CREATE TABLE IF NOT EXISTS "playlist"
 (
@@ -104,23 +141,12 @@ CREATE TABLE IF NOT EXISTS "playlist"
   "folder_id" INTEGER,
   CONSTRAINT "fk_playlist_folder" FOREIGN KEY ("folder_id") REFERENCES "folder" ("id")
 );
-DROP TABLE IF EXISTS "picture";
-CREATE TABLE IF NOT EXISTS "picture"
+
+DROP TABLE IF EXISTS "folder";
+CREATE TABLE IF NOT EXISTS "folder"
 (
   "id"   INTEGER PRIMARY KEY AUTOINCREMENT,
-  "path" TEXT UNIQUE NOT NULL
+  "name" TEXT UNIQUE NOT NULL
 );
-DROP TABLE IF EXISTS "composer";
-CREATE TABLE IF NOT EXISTS "composer"
-(
-  "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
-  "name"          TEXT NOT NULL UNIQUE,
-  "name_for_sort" TEXT
-);
-DROP TABLE IF EXISTS "genre";
-CREATE TABLE IF NOT EXISTS "genre"
-(
-  "id"   INTEGER PRIMARY KEY AUTOINCREMENT,
-  "name" TEXT NOT NULL UNIQUE
-);
+
 COMMIT;
