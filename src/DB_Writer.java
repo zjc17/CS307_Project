@@ -60,10 +60,9 @@ public class DB_Writer {
       String MPEG_Version,
       String MPEG_Layer, String channels, String comments, Integer fileSize, Integer length,
       Integer trackOrder, String albumArtist, String composer, String genre, Integer trackTotal) {
+
     int tmpInt = filePath.lastIndexOf(".");
     assert tmpInt != -1 : "Error: file path = " + filePath;
-    System.out.println();
-    System.out.println();
     String fileType = filePath.substring(tmpInt + 1);
     filePath = filePath.substring(0, tmpInt);
     int fileTypeId = db_reader.getFileTypeId(fileType);
@@ -79,6 +78,7 @@ public class DB_Writer {
     int creditId = db_reader.getCreditId(peopleId, "A"); // Artist
     // process album and album artist
     Integer albumId = null;
+
     if (!album.equals("")) {
       albumId = db_reader.getAlbumId(album);
       if (albumId == null) {
@@ -132,7 +132,7 @@ public class DB_Writer {
       }
     } catch (Exception e) {
       System.err.println(
-          "DB_Writer::insertPicture: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+          "DB_Writer::insertSong: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
               .getMessage());
     }
   }
@@ -147,7 +147,7 @@ public class DB_Writer {
       pstmt.close();
     } catch (Exception e) {
       System.err.println(
-          "DB_Writer::insertPicture: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+          "DB_Writer::insertPicture: " + e.getClass().getName() + ": " + e
               .getMessage());
     }
   }
@@ -196,7 +196,7 @@ public class DB_Writer {
    */
   private void insertCreditWithAlbum(int creditId, int albumId, int order) {
     assert (order > 0) : "Error: order = " + order;
-    System.out.println("xxx");
+
     try {
       String sql = "INSERT OR IGNORE INTO credit_with_album (credit_id, album_id, \"order\") VALUES (?, ?, ?)";
       PreparedStatement pstmt = connection.prepareStatement(sql);

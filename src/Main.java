@@ -13,7 +13,7 @@ public class Main {
     DB_Writer writter = new DB_Writer(connector);
     DB_Reader reader = new DB_Reader(connector, writter);
     String dirPath = "F:\\Music";
-//    parseMP3("F:\\Music\\Taylor Swift\\reputation\\03 I Did Something Bad.mp3");
+//    parseMP3("F:\\Music\\IU (아이유) - Gee&Lie&sorrysorry (Live).mp3");
 //System.out.println(    reader.getFileTypeId("mp3"));
     getFileName(dirPath);
     connector.close();
@@ -48,24 +48,24 @@ public class Main {
   private static void parseMP3(String filePath) {
     Parser_MP3 parser_mp3 = new Parser_MP3(filePath);
 
-    String songName = parser_mp3.getSongName();
-    String album = parser_mp3.getAlbum();
+    String songName = parser_mp3.getSongName().trim();
+    String album = parser_mp3.getAlbum().trim();
     Integer year = strToInteger(parser_mp3.getYear());
-    String artist = parser_mp3.getArtist();
+    String artist = parser_mp3.getArtist().trim();
     Double BPM = strToDouble(parser_mp3.getBPM());
     Integer sampleRate = parser_mp3.getSampleRate();
     Integer bitRate = parser_mp3.getBitRate();
-    String MPEG_Version = parser_mp3.getMpegVersion();
-    String MPEG_Layer = parser_mp3.getMpegLayer();
+    String MPEG_Version = parser_mp3.getMpegVersion().trim();
+    String MPEG_Layer = parser_mp3.getMpegLayer().trim();
 
-    String channels = parser_mp3.getChannels();
-    String comments = parser_mp3.getComments();
+    String channels = parser_mp3.getChannels().trim();
+    String comments = parser_mp3.getComments().trim();
     Integer fileSize = parser_mp3.getSize();
     Integer length = parser_mp3.getLength();
     Integer trackOrder = strToInteger(parser_mp3.getTrackTotal());
-    String albumArtist = parser_mp3.getAlbumArtist();
-    String composer = parser_mp3.getComposer();
-    String genre = parser_mp3.getGenre();
+    String albumArtist = parser_mp3.getAlbumArtist().trim();
+    String composer = parser_mp3.getComposer().trim();
+    String genre = parser_mp3.getGenre().trim();
     Integer trackTotal = strToInteger(parser_mp3.getTrackTotal());
     DB_Writer writter = new DB_Writer(connector);
     writter.insertSong(songName, filePath, album, year, artist, BPM, sampleRate, bitRate,
