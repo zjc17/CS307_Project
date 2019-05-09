@@ -4,11 +4,9 @@ import java.sql.ResultSet;
 
 public class DB_Reader {
   private Connection connection;
-  private DB_Connector connector;
   private DB_Writer writter;
 
   public DB_Reader(DB_Connector connector, DB_Writer db_writer) {
-    this.connector = connector;
     this.writter = db_writer;
     this.connection = connector.getConn();
   }
@@ -23,12 +21,13 @@ public class DB_Reader {
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, songName);
       pstmt.setInt(2, fileTypeId);
-      ResultSet rs = pstmt.executeQuery(sql);
-      pstmt.close();
+      ResultSet rs = pstmt.executeQuery();
       if (rs.isClosed()) {
+        pstmt.close();
         return -1;
       } else{
         int songId = rs.getInt("id");
+        pstmt.close();
         rs.close();
         return songId;
       }
@@ -53,17 +52,15 @@ public class DB_Reader {
       pstmt.setInt(1, peopleId);
       pstmt.setString(2, creditAs);
       ResultSet rs = pstmt.executeQuery();
-      pstmt.close();
       if (rs.isClosed()) { // no such people
         writter.insertCredit(peopleId, creditAs);
         pstmt = connection.prepareStatement(sql);
         pstmt.setInt(1, peopleId);
         pstmt.setString(2, creditAs);
         rs = pstmt.executeQuery();
-        pstmt.close();
       }
       int people_id = rs.getInt("id");
-
+      pstmt.close();
       rs.close();
       return people_id;
     } catch (Exception e) {
@@ -86,15 +83,14 @@ public class DB_Reader {
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, peopleName);
       ResultSet rs = pstmt.executeQuery();
-      pstmt.close();
       if (rs.isClosed()) { // no such people
         writter.insertPeople(peopleName);
         pstmt = connection.prepareStatement(sql);
         pstmt.setString(1, peopleName);
         rs = pstmt.executeQuery();
-        pstmt.close();
       }
       int people_id = rs.getInt("id");
+      pstmt.close();
       rs.close();
       return people_id;
     } catch (Exception e) {
@@ -111,13 +107,20 @@ public class DB_Reader {
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, genreName);
       ResultSet rs = pstmt.executeQuery();
+      if (rs.isClosed()) {
+        writter.insertGenre(genreName);
+        sql = "SELECT id FROM genre WHERE name = ?";
+        pstmt = connection.prepareStatement(sql);
+        pstmt.setString(1, genreName);
+        rs = pstmt.executeQuery();
+      }
       int genreId = rs.getInt("id");
       rs.close();
       pstmt.close();
       return genreId;
     } catch (Exception e) {
       System.err.println(
-          "DB_Reader::insertPlaylist: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+          "DB_Reader::getGenreId: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
               .getMessage());
     }
     return -1;
@@ -129,19 +132,18 @@ public class DB_Reader {
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, typeName);
       ResultSet rs = pstmt.executeQuery();
-      pstmt.close();
       if (rs.isClosed()) {
-        throw new IllegalAccessException("Unsupport file type: ." + typeName);
+        throw new IllegalAccessException("Unsupported file type: <" + typeName+">");
       }
       int fileTypeId = rs.getInt("id");
+      pstmt.close();
       rs.close();
       return fileTypeId;
     } catch (Exception e) {
       System.err.println(
-          "DB_Reader::getFileTypeId: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
-              .getMessage());
+          "DB_Reader::getFileTypeId: " + this.getClass() + ": " + e.getMessage());
     }
-    return -1;
+    throw new IllegalAccessError("Unsupported file type");
   }
 
   protected Integer getAlbumId(String albumName) {
@@ -150,11 +152,12 @@ public class DB_Reader {
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, albumName);
       ResultSet rs = pstmt.executeQuery();
-      pstmt.close();
+
       if (rs.isClosed()) {
         return null;
       }
       int albumId = rs.getInt("id");
+      pstmt.close();
       rs.close();
       return albumId;
     } catch (Exception e) {

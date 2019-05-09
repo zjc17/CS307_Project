@@ -41,3 +41,25 @@ SELECT credit.id            AS id,
 FROM people
        INNER JOIN credit ON people.id = credit.people_id
 ORDER BY name;
+
+SELECT song.name, album.name
+FROM song
+       INNER JOIN album on song.album_id = album.id
+ORDER BY album.name;
+
+
+-- artist and album
+SELECT DISTINCT artist.name, album.name
+FROM artist
+       INNER JOIN credit_with_song ON artist.id = credit_id
+INNER JOIN song on credit_with_song.song_id = song.id
+INNER JOIN album on song.album_id = album.id;
+
+-- 需要多存储一个 artist 和 album 的关系 （credit_as 可以区分 artist 和 album_artist）
+SELECT DISTINCT artist.name, album.name
+FROM artist
+            INNER JOIN credit_with_album ON artist.id = credit_with_album.credit_id
+INNER JOIN album  on credit_with_album.album_id = album.id
+
+
+

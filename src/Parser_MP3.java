@@ -68,7 +68,6 @@ public class Parser_MP3 extends Song_Parser {
 //      for (FieldKey fieldKey: FieldKey.values()) {
 //        System.out.println(fieldKey+"\t\t\t" + v2tag.getFirst(fieldKey));
 //      }
-      System.out.println(header.getMpegLayer());
       this.genre = v2tag.getFirst(FieldKey.GENRE);
       this.year = v2tag.getFirst(FieldKey.YEAR);
       this.trackOrder = v2tag.getFirst(FieldKey.TRACK);

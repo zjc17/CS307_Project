@@ -80,7 +80,7 @@ public class DB_Connector {
     String name = "artist_1";
     Integer trackNumber = 10;
 //    db_writer.insertArtistInfo(name);
-    db_writer.insertAlbum("album_1", 10);
+//    db_writer.insertAlbum("album_1", 10);
     connector.close();
   }
 

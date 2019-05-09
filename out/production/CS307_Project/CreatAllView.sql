@@ -6,7 +6,7 @@ SELECT credit.id            AS id,
        people.name          AS name,
        credit.name_for_sort AS name_for_sort,
        people.picture_id    AS picture_id
-FROM people
+FROM credit
        INNER JOIN credit ON people.id = credit.people_id
 WHERE credit_as = 'A';
 
@@ -32,7 +32,16 @@ WHERE credit_as = 'C';
 
 COMMIT;
 
--- View For album and album artist
--- SELECT *
--- FROM album_artist
---             INNER JOIN credit_with_album ON credit_id INNER JOIN album a on credit_with_album.album_id = a.id
+
+SELECT credit.id            AS id,
+       people.name          AS name,
+       credit.credit_as     AS credit_as,
+       credit.name_for_sort AS name_for_sort,
+       people.picture_id    AS picture_id
+FROM people
+       INNER JOIN credit ON people.id = credit.people_id
+ORDER BY name;
+
+SELECT * FROM song INNER JOIN album a on song.album_id = a.id
+
+DELETE FROM song;

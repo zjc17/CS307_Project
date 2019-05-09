@@ -60,10 +60,12 @@ public class DB_Writer {
       String MPEG_Version,
       String MPEG_Layer, String channels, String comments, Integer fileSize, Integer length,
       Integer trackOrder, String albumArtist, String composer, String genre, Integer trackTotal) {
-    String[] tmp = filePath.split(".");
-    assert tmp.length == 2 : "Error: file path = " + filePath;
-    String fileType = tmp[1];
-    filePath = tmp[0];
+    int tmpInt = filePath.lastIndexOf(".");
+    assert tmpInt != -1 : "Error: file path = " + filePath;
+    System.out.println();
+    System.out.println();
+    String fileType = filePath.substring(tmpInt + 1);
+    filePath = filePath.substring(0, tmpInt);
     int fileTypeId = db_reader.getFileTypeId(fileType);
     boolean isAlbum = !(album == null || album.equals(""));
     // 此处仅包含名字，默认文件处理后为 picPath.jpg
@@ -77,7 +79,7 @@ public class DB_Writer {
     int creditId = db_reader.getCreditId(peopleId, "A"); // Artist
     // process album and album artist
     Integer albumId = null;
-    if (!(album == null || album.equals(""))) {
+    if (!album.equals("")) {
       albumId = db_reader.getAlbumId(album);
       if (albumId == null) {
         insertAlbum(album, trackTotal);
@@ -92,6 +94,7 @@ public class DB_Writer {
     try {
       String sql;
       PreparedStatement pstmt;
+
       int songId = db_reader.getSongId(songName, fileTypeId);
       if (songId == -1) {
         sql =
