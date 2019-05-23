@@ -91,7 +91,8 @@ SELECT s.name AS song_name,
        s.date_added AS date_added
 FROM album a INNER JOIN song s on a.id = s.album_id;
 
-SELECT * FROM album_artist
+
+
 
 
 
