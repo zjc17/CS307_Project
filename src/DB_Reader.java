@@ -15,12 +15,11 @@ public class DB_Reader {
     return null;
   }
 
-  public int getSongId(String songName, int fileTypeId) {
+  public int getSongId(String songName) {
     try {
-      String sql = "SELECT id FROM song WHERE name = ? AND file_type_id = ?";
+      String sql = "SELECT id FROM song WHERE name = ?";
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, songName);
-      pstmt.setInt(2, fileTypeId);
       ResultSet rs = pstmt.executeQuery();
       if (rs.isClosed()) {
         pstmt.close();
@@ -126,6 +125,7 @@ public class DB_Reader {
     return -1;
   }
 
+  /*
   protected int getFileTypeId(String typeName) {
     try {
       String sql = "SELECT id FROM file_type WHERE name = ?";
@@ -145,6 +145,7 @@ public class DB_Reader {
     }
     throw new IllegalAccessError("Unsupported file type");
   }
+  */
 
   protected Integer getAlbumId(String albumName) {
     try {

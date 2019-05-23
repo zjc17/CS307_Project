@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS "people"
   "id"         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "name"       TEXT    NOT NULL UNIQUE,
   "picture_id" INTEGER,
+  "name_for_sort" TEXT,
   FOREIGN KEY ("picture_id") REFERENCES "picture" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -15,18 +16,10 @@ CREATE TABLE IF NOT EXISTS "credit"
   "id"            INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   "people_id"     INTEGER NOT NULL,
   "credit_as"     TEXT    NOT NULL,
-  "name_for_sort" TEXT,
   UNIQUE ("people_id", "credit_as"),
   FOREIGN KEY ("people_id") REFERENCES "people" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS "file_type";
-CREATE TABLE IF NOT EXISTS "file_type"
-(
-  "id"    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-  "name"  TEXT NOT NULL UNIQUE COLLATE NOCASE
-);
-INSERT INTO file_type (name) VALUES ("mp3");
 
 DROP TABLE IF EXISTS "song";
 CREATE TABLE IF NOT EXISTS "song"
@@ -35,7 +28,6 @@ CREATE TABLE IF NOT EXISTS "song"
   "name"           TEXT    NOT NULL UNIQUE,
   "name_for_sort"  TEXT,
   "file_path"      TEXT    NOT NULL,
-  "file_type_id"   INTEGER NOT NULL,
   "picture_id"     INTEGER,
   "album_id"       INTEGER,
   "year"           INTEGER,
@@ -56,8 +48,6 @@ CREATE TABLE IF NOT EXISTS "song"
   "last_play_time" TEXT,
   "skip_count"     INTEGER          DEFAULT 0,
   "last_skip_time" TEXT,
-  UNIQUE ("name", "file_type_id"),
-  FOREIGN KEY ("file_type_id") REFERENCES "file_type" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY ("album_id") REFERENCES "album" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY ("picture_id") REFERENCES "picture" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -76,10 +66,7 @@ DROP TABLE IF EXISTS "picture";
 CREATE TABLE IF NOT EXISTS "picture"
 (
   "id"            INTEGER PRIMARY KEY AUTOINCREMENT,
-  "path"          TEXT NOT NULL,
-  "file_type_id"  INTEGER NOT NULL,
-  UNIQUE ("path", "file_type_id"),
-  FOREIGN KEY ("file_type_id") REFERENCES "file_type" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+  "path"          TEXT UNIQUE NOT NULL
 );
 
 DROP TABLE IF EXISTS "genre";
@@ -117,7 +104,7 @@ CREATE TABLE IF NOT EXISTS "credit_with_album"
 (
   "credit_id" INTEGER NOT NULL,
   "album_id"  INTEGER NOT NULL,
-  order     INTEGER NOT NULL DEFAULT 1,
+  "order"     INTEGER NOT NULL DEFAULT 1,
   UNIQUE ("credit_id", "album_id"),
   FOREIGN KEY ("credit_id") REFERENCES "credit" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY ("album_id") REFERENCES "album" ("id") ON DELETE CASCADE ON UPDATE CASCADE

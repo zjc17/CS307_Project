@@ -87,8 +87,11 @@ SELECT * FROM pre_select;
 SELECT * FROM song WHERE album_id IS null;
 
 SELECT s.name AS song_name,
-       a.name AS album_name
-FROM album a INNER JOIN song s on a.id = s.album_id
+       a.name AS album_name,
+       s.date_added AS date_added
+FROM album a INNER JOIN song s on a.id = s.album_id;
+
+SELECT * FROM album_artist
 
 
 

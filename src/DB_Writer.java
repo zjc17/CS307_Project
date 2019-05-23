@@ -61,16 +61,17 @@ public class DB_Writer {
       String MPEG_Layer, String channels, String comments, Integer fileSize, Integer length,
       Integer trackOrder, String albumArtist, String composer, String genre, Integer trackTotal) {
 
-    int tmpInt = filePath.lastIndexOf(".");
-    assert tmpInt != -1 : "Error: file path = " + filePath;
-    String fileType = filePath.substring(tmpInt + 1);
-    filePath = filePath.substring(0, tmpInt);
-    int fileTypeId = db_reader.getFileTypeId(fileType);
+//    int tmpInt = filePath.lastIndexOf(".");
+//    assert tmpInt != -1 : "Error: file path = " + filePath;
+//    String fileType = filePath.substring(tmpInt + 1);
+//    filePath = filePath.substring(0, tmpInt);
+
+//    int fileTypeId = db_reader.getFileTypeId(fileType);
     boolean isAlbum = !(album == null || album.equals(""));
     // 此处仅包含名字，默认文件处理后为 picPath.jpg
     String picPath = (isAlbum ? Constant.picPathForAlbum + Constant.fileSeparator + album
         : Constant.picPathForSong + Constant.fileSeparator + songName);
-    insertPicture(picPath, 3);
+    insertPicture(picPath);
     Integer pictureId = db_reader.getPictureId(picPath);
 
     int genreId = db_reader.getGenreId(genre);
@@ -95,32 +96,31 @@ public class DB_Writer {
       String sql;
       PreparedStatement pstmt;
 
-      int songId = db_reader.getSongId(songName, fileTypeId);
+      int songId = db_reader.getSongId(songName);
       if (songId == -1) {
         sql =
-            "INSERT OR IGNORE INTO song (name, file_path, file_type_id, picture_id, album_id, year,"
+            "INSERT OR IGNORE INTO song (name, file_path, picture_id, album_id, year,"
                 + " bpm, sampleRate, bitRate, mpeg_version, mpeg_layer, channels, comments, size, length,"
-                + " track_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + " track_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         pstmt = connection.prepareStatement(sql);
         pstmt.setString(1, songName);
         pstmt.setString(2, filePath);
-        pstmt.setInt(3, fileTypeId);
-        pstmt.setObject(4, pictureId);
-        pstmt.setObject(5, albumId);
-        pstmt.setObject(6, year);
-        pstmt.setObject(7, BPM);
-        pstmt.setObject(8, sampleRate);
-        pstmt.setObject(9, bitRate);
-        pstmt.setString(10, MPEG_Version);
-        pstmt.setString(11, MPEG_Layer);
-        pstmt.setString(12, channels);
-        pstmt.setString(13, comments);
-        pstmt.setObject(14, fileSize);
-        pstmt.setObject(15, length);
-        pstmt.setObject(16, trackOrder);
+        pstmt.setObject(3, pictureId);
+        pstmt.setObject(4, albumId);
+        pstmt.setObject(5, year);
+        pstmt.setObject(6, BPM);
+        pstmt.setObject(7, sampleRate);
+        pstmt.setObject(8, bitRate);
+        pstmt.setString(9, MPEG_Version);
+        pstmt.setString(10, MPEG_Layer);
+        pstmt.setString(11, channels);
+        pstmt.setString(12, comments);
+        pstmt.setObject(13, fileSize);
+        pstmt.setObject(14, length);
+        pstmt.setObject(15, trackOrder);
         pstmt.executeUpdate();
         pstmt.close();
-        songId = db_reader.getSongId(songName, fileTypeId);
+        songId = db_reader.getSongId(songName);
       }
       insertSongHasGenre(songId, genreId, 1);
       insertCreditWithSong(creditId, songId, 1);
@@ -137,12 +137,11 @@ public class DB_Writer {
     }
   }
 
-  private void insertPicture(String path, int fileTypeId) {
+  private void insertPicture(String path) {
     try {
-      String sql = "INSERT OR IGNORE INTO picture (path, file_type_id) VALUES (?, ?)";
+      String sql = "INSERT OR IGNORE INTO picture (path) VALUES (?)";
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setString(1, path);
-      pstmt.setInt(2, fileTypeId);
       pstmt.executeUpdate();
       pstmt.close();
     } catch (Exception e) {
