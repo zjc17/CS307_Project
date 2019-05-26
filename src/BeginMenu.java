@@ -249,20 +249,22 @@ public class BeginMenu {
       } else {
         do {
           int id = resultSet.getInt("id");
-          String name = resultSet.getString("name");
-          int pic_id = resultSet.getInt("picture_id");
+          String songName = resultSet.getString("name");
+          int length = resultSet.getInt("length");
+          String lengthInMinute = resultSet.getString("length_in_minute");
+          String albumName = resultSet.getString("album_name");
+          String genreName = resultSet.getString("genre_name");
+          int rating = resultSet.getInt("rating");
           String filePath = resultSet.getString("file_path");
-          System.out.printf("%2d\t\t%30s\t\t%2d\t\t%20s\n", id, name, pic_id, filePath);
+          int pic_id = resultSet.getInt("picture_id");
+          System.out.printf("%2d\t%30s\t%5s\t%20s\t%10s\t%d\t\t%60s\t%2d\n", id, songName, lengthInMinute, albumName, genreName, rating, filePath, pic_id);
           resultSet.next();
         } while (!resultSet.isClosed());
       }
-
     } catch (SQLException e) {
       System.err.println("Error in printAlbumInfo");
     }
   }
-
-
 
 
   public static void playMusic(String musicPath) {
@@ -289,7 +291,7 @@ public class BeginMenu {
 //    Menu();
     BeginMenu beginMenu = new BeginMenu();
 //    beginMenu.Menu();
-//    beginMenu.printSongInfo(0);
+    beginMenu.printSongInfo(0);
   }
 }
 

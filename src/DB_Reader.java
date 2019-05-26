@@ -187,13 +187,16 @@ public class DB_Reader {
 
   public ResultSet getSongInfo(int offset) {
     try {
-      String sql = "SELECT id, name, file_path, picture_id FROM song\n"
-                  + "ORDER BY CASE\n"
-                  + "           WHEN name_for_sort IS NOT NULL\n"
-                  + "             THEN name_for_sort\n"
-                  + "           ELSE name\n"
-                  + "             END\n"
-                  + "LIMIT 10 OFFSET ?";
+      String sql = "SELECT s.id, s.name, s.length, (s.length/60) || ':' || (s.length % 60) AS length_in_minute, a.name AS album_name, g.name AS genre_name, s.rating, s.file_path, s.picture_id FROM song s\n"
+          + "  JOIN (SELECT name, id FROM album) a ON a.id = s.album_id\n"
+          + "  JOIN (SELECT song_id, genre_id, \"order\" AS genre_id FROM song_has_genre) sg ON s.id = song_id\n"
+          + "  JOIN (SELECT name, id FROM genre) g ON g.id = sg.genre_id\n"
+          + "ORDER BY CASE\n"
+          + "           WHEN s.name_for_sort IS NOT NULL\n"
+          + "             THEN s.name_for_sort\n"
+          + "           ELSE s.name\n"
+          + "         END\n"
+          + "LIMIT 10 OFFSET ?";
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setInt(1, offset);
       ResultSet rs = pstmt.executeQuery();

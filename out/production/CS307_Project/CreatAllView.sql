@@ -78,7 +78,7 @@ create view people_and_credit as
 select credit.id as credit_id, credit.people_id as people_id, people.name, people.name_for_sort, people.picture_id, credit_as
 from credit join people  on credit.people_id = people.id;
 
-create view credit_and_album as
+CREATE VIEW IF NOT EXISTS credit_and_album as
 select pac.credit_id, pac.people_id,pac.name as people_name,
        pac.picture_id as picture_id_people,
        a.id as album_id, a.name as album_name,
