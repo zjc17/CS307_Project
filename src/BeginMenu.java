@@ -25,7 +25,7 @@ public class BeginMenu {
   static ArrayList<Song> song = new ArrayList<Song>();
   static ArrayList<PlayList> playlist = new ArrayList<PlayList>();
 
-  public static void Menu() {
+  public  void Menu() {
     System.out.println("\n1.Artist\n"
         + "2.Album\n"
         + "3.Songs\n"
@@ -57,7 +57,7 @@ public class BeginMenu {
     }
   }
 
-  public static void Singer() {
+  public  void Singer() {
     System.out.println("Here is the list of all the artists:");
     //get artist
     singer.add(new Artist(1, "aaaaaa")); //example
@@ -77,7 +77,7 @@ public class BeginMenu {
     }
   }
 
-  public static void showSinger(ArrayList<Artist> now, int next) {
+  public  void showSinger(ArrayList<Artist> now, int next) {
     if (next < now.size()) {
       //show artist(next) information
     } else {
@@ -86,11 +86,11 @@ public class BeginMenu {
     }
   }
 
-  public static void Album() {
+  public  void Album() {
     System.out.println("Here is the list of all albums:");
-
+    int offset = 5 * 1;
+    printAlbumInfo(offset);
     //get artist
-    album.add(new Album(1, "aaaa", "aaa", 2)); //example
     for (int i = 0; i < album.size(); i++) {
       System.out.println(album.get(i).id + " " + album.get(i).name);
     }
@@ -107,7 +107,7 @@ public class BeginMenu {
     }
   }
 
-  public static void showAlbumInformation(int id) {
+  public  void showAlbumInformation(int id) {
     if (id <= album.size()) {
       System.out.println("Album name: " + album.get(id).name);
       System.out.println("Artist name: " + album.get(id).artist);
@@ -128,7 +128,7 @@ public class BeginMenu {
     }
   }
 
-  public static void Song() {
+  public  void Song() {
     System.out.println("Here is the list of all songs:");
     //get song
     song.add(new Song(1, "aa", "aaa")); //example
@@ -146,7 +146,7 @@ public class BeginMenu {
     }
   }
 
-  public static void showSongInformation(ArrayList<Song> now, int next) {
+  public  void showSongInformation(ArrayList<Song> now, int next) {
     if (next < now.size()) {
       System.out.println(now.get(next).name);
       System.out.println("1.Play this song\n" + "2.More information\n" + "3.Back\n");
@@ -167,7 +167,7 @@ public class BeginMenu {
 
   }
 
-  public static void PlayList() {
+  public  void PlayList() {
     System.out.println("Here is the list of all PlayLists:");
 
     //get song
@@ -191,7 +191,7 @@ public class BeginMenu {
     }
   }
 
-  public static void EditPlayList() {
+  public  void EditPlayList() {
     System.out.println("1. Add new PlayList\n" + "2.Delete existing playList");
     int operation = input.nextInt();
     if (operation == 1) {
@@ -208,7 +208,7 @@ public class BeginMenu {
     }
   }
 
-  public static void Search() {
+  public  void Search() {
     String next = input.nextLine();
     //search result
     //input -1 to go back to Menu()
@@ -259,10 +259,10 @@ public class BeginMenu {
   }
 
   public static void main(String[] args) {
-//    System.out.println("Welcome to use ***!");
+    System.out.println("Welcome to use ***!");
 //    Menu();
     BeginMenu beginMenu = new BeginMenu();
-
-    beginMenu.printSongInfo(0);
+    beginMenu.Menu();
+//    beginMenu.printSongInfo(0);
   }
 }
