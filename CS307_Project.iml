@@ -10,5 +10,7 @@
     <orderEntry type="library" name="jaudiotagger-2.2.6-SNAPSHOT" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.27.2.1" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="jl-1.0.1" level="project" />
   </component>
 </module>

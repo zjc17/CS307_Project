@@ -70,7 +70,6 @@
     <index id="29" parent="6" name="sqlite_autoindex_album_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="30" parent="6">
@@ -109,7 +108,6 @@
       <NameSurrogate>1</NameSurrogate>
       <ColNames>people_id
 credit_as</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="38" parent="7">
@@ -148,7 +146,6 @@ credit_as</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>credit_id
 album_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="45" parent="8">
@@ -213,7 +210,6 @@ album_id</ColNames>
     <index id="55" parent="10" name="sqlite_autoindex_folder_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="56" parent="10">
@@ -238,7 +234,6 @@ album_id</ColNames>
     <index id="60" parent="11" name="sqlite_autoindex_genre_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="61" parent="11">
@@ -271,7 +266,6 @@ album_id</ColNames>
     <index id="67" parent="12" name="sqlite_autoindex_people_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="68" parent="12">
@@ -302,7 +296,6 @@ album_id</ColNames>
     <index id="73" parent="13" name="sqlite_autoindex_picture_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>path</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="74" parent="13">
@@ -330,7 +323,6 @@ album_id</ColNames>
     <index id="79" parent="14" name="sqlite_autoindex_playlist_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="80" parent="14">
@@ -363,7 +355,6 @@ album_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>playlist_id
 song_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="87" parent="15">
@@ -495,7 +486,6 @@ song_id</ColNames>
     <index id="114" parent="16" name="sqlite_autoindex_song_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="115" parent="16">
@@ -540,7 +530,6 @@ song_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>song_id
 genre_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="123" parent="17">
