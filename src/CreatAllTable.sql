@@ -137,4 +137,8 @@ CREATE TABLE IF NOT EXISTS "folder"
   "name" TEXT UNIQUE NOT NULL
 );
 
+DROP TABLE IF EXISTS "English_FTS";
+CREATE VIRTUAL TABLE English_FTS USING fts5(id, name, table_type);
+
+
 COMMIT;

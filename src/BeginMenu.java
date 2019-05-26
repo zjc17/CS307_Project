@@ -1,7 +1,11 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 public class BeginMenu {
 
@@ -25,7 +29,7 @@ public class BeginMenu {
   static ArrayList<Song> song = new ArrayList<Song>();
   static ArrayList<PlayList> playlist = new ArrayList<PlayList>();
 
-  public  void Menu() {
+  public void Menu() {
     System.out.println("\n1.Artist\n"
         + "2.Album\n"
         + "3.Songs\n"
@@ -57,7 +61,7 @@ public class BeginMenu {
     }
   }
 
-  public  void Singer() {
+  public void Singer() {
     System.out.println("Here is the list of all the artists:");
     //get artist
     singer.add(new Artist(1, "aaaaaa")); //example
@@ -77,7 +81,7 @@ public class BeginMenu {
     }
   }
 
-  public  void showSinger(ArrayList<Artist> now, int next) {
+  public void showSinger(ArrayList<Artist> now, int next) {
     if (next < now.size()) {
       //show artist(next) information
     } else {
@@ -86,7 +90,7 @@ public class BeginMenu {
     }
   }
 
-  public  void Album() {
+  public void Album() {
     System.out.println("Here is the list of all albums:");
     int offset = 5 * 1;
     printAlbumInfo(offset);
@@ -107,7 +111,7 @@ public class BeginMenu {
     }
   }
 
-  public  void showAlbumInformation(int id) {
+  public void showAlbumInformation(int id) {
     if (id <= album.size()) {
       System.out.println("Album name: " + album.get(id).name);
       System.out.println("Artist name: " + album.get(id).artist);
@@ -128,7 +132,7 @@ public class BeginMenu {
     }
   }
 
-  public  void Song() {
+  public void Song() {
     System.out.println("Here is the list of all songs:");
     //get song
     song.add(new Song(1, "aa", "aaa")); //example
@@ -146,7 +150,7 @@ public class BeginMenu {
     }
   }
 
-  public  void showSongInformation(ArrayList<Song> now, int next) {
+  public void showSongInformation(ArrayList<Song> now, int next) {
     if (next < now.size()) {
       System.out.println(now.get(next).name);
       System.out.println("1.Play this song\n" + "2.More information\n" + "3.Back\n");
@@ -167,7 +171,7 @@ public class BeginMenu {
 
   }
 
-  public  void PlayList() {
+  public void PlayList() {
     System.out.println("Here is the list of all PlayLists:");
 
     //get song
@@ -191,7 +195,7 @@ public class BeginMenu {
     }
   }
 
-  public  void EditPlayList() {
+  public void EditPlayList() {
     System.out.println("1. Add new PlayList\n" + "2.Delete existing playList");
     int operation = input.nextInt();
     if (operation == 1) {
@@ -208,13 +212,13 @@ public class BeginMenu {
     }
   }
 
-  public  void Search() {
+  public void Search() {
     String next = input.nextLine();
     //search result
     //input -1 to go back to Menu()
   }
 
-  private void printAlbumInfo(int offset)   {
+  private void printAlbumInfo(int offset) {
     ResultSet resultSet = reader.getAlbumInfo(offset);
 
     try {
@@ -236,7 +240,7 @@ public class BeginMenu {
     }
   }
 
-  private void printSongInfo(int offset)   {
+  private void printSongInfo(int offset) {
     ResultSet resultSet = reader.getSongInfo(offset);
     try {
       resultSet.next();
@@ -258,11 +262,56 @@ public class BeginMenu {
     }
   }
 
+
+
+
+  public static void playMusic(String musicPath) {
+    Scanner keyboard = new Scanner(System.in);
+    Music music = new Music(musicPath);
+    music.start();
+    System.out.println("Music is playing! Press 0 to stop it.");
+    int off = -1;
+    while(off == -1){
+      off = keyboard.nextInt();
+      if (off == 0) {
+        music.stop();
+        System.out.println("Music is stopped.");
+      }
+      else {
+        System.out.println("Invalid input! Try again.");
+        off = -1;
+      }
+    }
+  }
+
   public static void main(String[] args) {
     System.out.println("Welcome to use ***!");
 //    Menu();
     BeginMenu beginMenu = new BeginMenu();
-    beginMenu.Menu();
+//    beginMenu.Menu();
 //    beginMenu.printSongInfo(0);
   }
+}
+
+
+class Music extends Thread {
+
+  private String p;
+
+  public Music(String path) {
+    p = path;
+  }
+
+  public void run() {
+    try {
+      FileInputStream fileInputStream = new FileInputStream(p);
+      Player player = new Player(fileInputStream);
+      player.play();
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (JavaLayerException e) {
+      e.printStackTrace();
+    }
+  }
+
 }

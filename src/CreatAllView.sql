@@ -74,24 +74,22 @@ FROM album a
        INNER JOIN file_type ft on p.file_type_id = ft.id;
 
 
-SELECT * FROM song WHERE name LIKE "Gee%";
+create view people_and_credit as
+select credit.id as credit_id, credit.people_id as people_id, people.name, people.name_for_sort, people.picture_id, credit_as
+from credit join people  on credit.people_id = people.id;
 
-SELECT * FROM song WHERE year IS NULL;
+CREATE VIEW IF NOT EXISTS credit_and_album as
+select pac.credit_id, pac.people_id,pac.name as people_name,
+       pac.picture_id as picture_id_people,
+       a.id as album_id, a.name as album_name,
+       a.picture_id as picture_id_album, track_total_number, compilation
+from people_and_credit as pac
+            left join credit_with_album cwa on cwa.credit_id = pac.credit_id
+            left join album a on cwa.album_id = a.id;
 
-WITH pre_select AS (SELECT s.name AS song_name,
-       a.name AS album_name
-FROM album a INNER JOIN song s on a.id = s.album_id)
-
-SELECT * FROM pre_select;
-
-SELECT * FROM song WHERE album_id IS null;
-
-SELECT s.name AS song_name,
-       a.name AS album_name,
-       s.date_added AS date_added
-FROM album a INNER JOIN song s on a.id = s.album_id;
-
-
+create view credit_song as
+select pac.*, cws.song_id as song_id
+from people_and_credit pac join credit_with_song cws on pac.credit_id = cws.credit_id;
 
 
 
