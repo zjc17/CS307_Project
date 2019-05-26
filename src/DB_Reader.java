@@ -168,4 +168,20 @@ public class DB_Reader {
     }
     return null;
   }
+
+  protected ResultSet getAlbumInfo(int offset) {
+    try {
+      String sql = "SELECT id, name, picture_id FROM album ORDER BY CASE WHEN name_for_sort IS NOT NULL THEN name_for_sort ELSE name END LIMIT 5 offset ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, offset);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getAlbumInfo: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getAlbumInfo");
+
+  }
 }

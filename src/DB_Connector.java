@@ -14,6 +14,7 @@ public class DB_Connector {
 
   public DB_Connector() {
     this.conn = null;
+    this.getConnection();
   }
 
   public void getConnection() {
