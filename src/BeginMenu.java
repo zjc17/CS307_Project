@@ -236,11 +236,33 @@ public class BeginMenu {
     }
   }
 
+  private void printSongInfo(int offset)   {
+    ResultSet resultSet = reader.getSongInfo(offset);
+    try {
+      resultSet.next();
+      if (resultSet.isClosed()) {
+        return;
+      } else {
+        do {
+          int id = resultSet.getInt("id");
+          String name = resultSet.getString("name");
+          int pic_id = resultSet.getInt("picture_id");
+          String filePath = resultSet.getString("file_path");
+          System.out.printf("%2d\t\t%30s\t\t%2d\t\t%20s\n", id, name, pic_id, filePath);
+          resultSet.next();
+        } while (!resultSet.isClosed());
+      }
+
+    } catch (SQLException e) {
+      System.err.println("Error in printAlbumInfo");
+    }
+  }
+
   public static void main(String[] args) {
 //    System.out.println("Welcome to use ***!");
 //    Menu();
     BeginMenu beginMenu = new BeginMenu();
 
-    beginMenu.printAlbumInfo(5);
+    beginMenu.printSongInfo(0);
   }
 }

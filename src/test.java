@@ -31,7 +31,6 @@ public class test {
     public static void main(String args[]) {
         work("D:/abc.mp3");
     }
-
     public static void work(String path) {
         Scanner keyboard = new Scanner(System.in);
         Music music = new Music(path);

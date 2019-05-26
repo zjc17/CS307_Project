@@ -184,4 +184,25 @@ public class DB_Reader {
     throw new IllegalStateException("Wrong: getAlbumInfo");
 
   }
+
+  public ResultSet getSongInfo(int offset) {
+    try {
+      String sql = "SELECT id, name, file_path, picture_id FROM song\n"
+                  + "ORDER BY CASE\n"
+                  + "           WHEN name_for_sort IS NOT NULL\n"
+                  + "             THEN name_for_sort\n"
+                  + "           ELSE name\n"
+                  + "             END\n"
+                  + "LIMIT 10 OFFSET ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, offset);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getAlbumInfo: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getAlbumInfo");
+  }
 }
