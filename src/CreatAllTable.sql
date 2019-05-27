@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS "album"
   "id"                 INTEGER PRIMARY KEY AUTOINCREMENT,
   "name"               TEXT    NOT NULL UNIQUE COLLATE NOCASE,
   "name_for_sort"      TEXT,
+  "rating"             INTEGER DEFAULT 0,
   "picture_id"         INTEGER,
   "track_total_number" INTEGER CHECK (track_total_number > 0), -- Total number
   "compilation"        INTEGER NOT NULL DEFAULT 0,       -- 1 for true, and group by albumArtist otherwise group by artist
@@ -130,12 +131,16 @@ CREATE TABLE IF NOT EXISTS "playlist"
   CONSTRAINT "fk_playlist_folder" FOREIGN KEY ("folder_id") REFERENCES "folder" ("id")
 );
 
+
+
 DROP TABLE IF EXISTS "folder";
 CREATE TABLE IF NOT EXISTS "folder"
 (
   "id"   INTEGER PRIMARY KEY AUTOINCREMENT,
   "name" TEXT UNIQUE NOT NULL
 );
+INSERT INTO folder (id, name) VALUES (1, 'default');
+INSERT INTO playlist (name, folder_id) VALUES ("default", 1);
 
 DROP TABLE IF EXISTS "English_FTS";
 CREATE VIRTUAL TABLE English_FTS USING fts5(id, name, table_type);

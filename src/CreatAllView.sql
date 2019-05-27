@@ -2,12 +2,13 @@ BEGIN TRANSACTION;
 
 DROP VIEW IF EXISTS "artist";
 CREATE VIEW IF NOT EXISTS "artist" AS
-SELECT credit.id            AS id,
-       people.name          AS name,
-       credit.name_for_sort AS name_for_sort,
-       people.picture_id    AS picture_id
-FROM credit
-       INNER JOIN credit ON people.id = credit.people_id
+SELECT p.id            AS id,
+       p.name          AS name,
+       p.name_for_sort AS name_for_sort,
+       p.picture_id    AS picture_id,
+       c.id            AS credit_id
+FROM people p
+       INNER JOIN credit c ON p.id = c.people_id
 WHERE credit_as = 'A';
 
 DROP VIEW IF EXISTS "album_artist";
@@ -46,6 +47,7 @@ SELECT song.name, album.name
 FROM song
        INNER JOIN album on song.album_id = album.id
 ORDER BY album.name;
+
 
 
 -- artist and album

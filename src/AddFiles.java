@@ -1,10 +1,18 @@
 
 import java.io.File;
 
-public class Main {
+public class AddFiles {
 
   private static long startTime, endTime;
   private static DB_Connector connector = new DB_Connector();
+
+  public AddFiles(String path) {
+    DB_Connector connector = new DB_Connector();
+    DB_Writer writter = new DB_Writer(connector);
+    DB_Reader reader = new DB_Reader(connector, writter);
+    getFileName(path);
+    connector.close();
+  }
 
   public static void main(String[] args) {
 //  check();

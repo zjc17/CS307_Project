@@ -11,21 +11,6 @@ public class DB_Writer {
     this.db_reader = new DB_Reader(connector, this);
   }
 
-  // TODO:
-  public void addPlaylistHasSong(int playlistId, int songId, int order) {
-
-  }
-
-  // TODO:
-  public void addPicture(String path, int fileTypeId) {
-
-  }
-
-  // TODO:
-  public void updateNameForSort(String datebaseName, String newNameForSort) {
-
-  }
-
   public void addPlaylist(String playlistName, Integer folderId) {
     try {
       String sql = "INSERT OR IGNORE INTO playlist (name, folder_id) VALUES (?, ?)";
@@ -313,6 +298,85 @@ public class DB_Writer {
     } catch (Exception e) {
       System.err.println(
           "insertAlbum: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+  }
+
+  public void updateSongRate(int songId, int rating) {
+    try {
+      /* INSERT */
+      String sql = "UPDATE song SET rating = ? WHERE id = ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, rating);
+      pstmt.setInt(2, songId);
+      pstmt.executeUpdate();
+      pstmt.close();
+    } catch (Exception e) {
+      System.err.println(
+          "updateSongRate: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+  }
+
+  protected void insertPlaylist(String name) {
+    try {
+      String sql = "INSERT INTO playlist (name, folder_id) VALUES (?, 1)";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setString(1, name);
+      pstmt.executeUpdate();
+      pstmt.close();
+    } catch (Exception e) {
+      System.err.println(
+          "insertPlaylist: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+  }
+
+  protected void insertPlaylistHasSong(int playlistId, int songId) {
+    try {
+      /* INSERT */
+      String sql = "INSERT INTO playlist_has_song (playlist_id, song_id, \"order\")\n"
+          + "VALUES (?, ?, (SELECT count(playlist_id) cnt FROM playlist_has_song WHERE playlist_id = ?));";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, playlistId);
+      pstmt.setInt(2, songId);
+      pstmt.setInt(3, playlistId);
+      pstmt.executeUpdate();
+      pstmt.close();
+    } catch (Exception e) {
+      System.err.println(
+          "insertPlaylistHasSong: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+  }
+
+  protected void deletePlaylist(int playlistId) {
+    try {
+      /* DELETE */
+      String sql = "DELETE FROM playlist WHERE id = ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, playlistId);
+      pstmt.executeUpdate();
+      pstmt.close();
+    } catch (Exception e) {
+      System.err.println(
+          "deletePlaylist: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+  }
+
+  public void deletePlaylistHasSong(int songId, int playlistID) {
+    try {
+      /* DELETE */
+      String sql = "DELETE FROM playlist_has_song WHERE song_id = ? AND playlist_id = ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, songId);
+      pstmt.setInt(2, playlistID);
+      pstmt.executeUpdate();
+      pstmt.close();
+    } catch (Exception e) {
+      System.err.println(
+          "deletePlaylistHasSong: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
               .getMessage());
     }
   }

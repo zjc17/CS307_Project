@@ -185,7 +185,7 @@ public class DB_Reader {
 
   }
 
-  public ResultSet getSongInfo(int offset) {
+  protected ResultSet getSongInfo(int offset) {
     try {
       String sql = "SELECT s.id, s.name, s.length, (s.length/60) || ':' || (s.length % 60) AS length_in_minute, a.name AS album_name, g.name AS genre_name, s.rating, s.file_path, s.picture_id FROM song s\n"
           + "  JOIN (SELECT name, id FROM album) a ON a.id = s.album_id\n"
@@ -207,5 +207,79 @@ public class DB_Reader {
               .getMessage());
     }
     throw new IllegalStateException("Wrong: getAlbumInfo");
+  }
+
+  /**
+   * 默认展示所有
+   * @return 所有播放列表的结果集
+   */
+  protected ResultSet getPlaylistInfo() {
+    try {
+      String sql = "SELECT id, name FROM playlist";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getPlaylistInfo: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getPlaylistInfo");
+
+  }
+
+  protected ResultSet getSongInPlaylist(int playlistId, int offset) {
+    try {
+      String sql = "WITH songInPlaylist AS (SELECT playlist_id, song_id, \"order\" order_no\n"
+          + "                FROM playlist_has_song\n"
+          + "                WHERE playlist_id = ?\n"
+          + "                ORDER BY order_no)\n"
+          + "SELECT s.id,\n"
+          + "       s.name,\n"
+          + "       s.length,\n"
+          + "       CAST(((s.length / 60) || ':' || (s.length % 60)) AS TEXT) AS length_in_minute,\n"
+          + "       a.name                                                    AS album_name,\n"
+          + "       g.name                                                    AS genre_name,\n"
+          + "       s.rating,\n"
+          + "       s.file_path,\n"
+          + "       s.picture_id\n"
+          + "FROM songInPlaylist sp\n"
+          + "       INNER JOIN song s ON sp.song_id = s.id\n"
+          + "        INNER JOIN (SELECT name, id FROM album) a ON a.id = s.album_id\n"
+          + "       JOIN (SELECT sg.song_id, genre_id, \"order\" AS genre_id FROM song_has_genre sg) sg ON s.id = sg.song_id\n"
+          + "       JOIN (SELECT name, id FROM genre) g ON g.id = sg.genre_id\n"
+          + "ORDER BY sp.order_no\n"
+          + "LIMIT 10 OFFSET ?;";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, playlistId);
+      pstmt.setInt(2, offset);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getSongInPlaylist: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getSongInPlaylist");
+
+  }
+
+  protected ResultSet getArtistInfo(int offset) {
+    try {
+      String sql = "SELECT id, name FROM artist a ORDER BY CASE\n"
+                  + "  WHEN a.name_for_sort IS NOT NULL\n"
+                  + "  THEN a.name_for_sort\n"
+                  + "  ELSE a.name\n"
+                  + "END LIMIT 5 OFFSET ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, offset);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getArtistInfo: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getArtistInfo");
   }
 }
