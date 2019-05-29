@@ -3,38 +3,40 @@ import java.io.File;
 
 public class AddFiles {
 
-  private static long startTime, endTime;
-  private static DB_Connector connector = new DB_Connector();
+  private DB_Writer writter;
+  private DB_Connector connector;
+  private final int batch_size = 10;
 
-  public AddFiles(String path) {
-    DB_Connector connector = new DB_Connector();
-    DB_Writer writter = new DB_Writer(connector);
-    DB_Reader reader = new DB_Reader(connector, writter);
+  public AddFiles(String path, DB_Connector connector, DB_Writer writter) {
+    this.connector = connector;
+    this.writter = writter;
     getFileName(path);
-    connector.close();
   }
 
   public static void main(String[] args) {
-//  check();
-
+    DB_Connector connector = new DB_Connector();
     connector.getConnection();
     DB_Writer writter = new DB_Writer(connector);
-    DB_Reader reader = new DB_Reader(connector, writter);
-    String dirPath = "F:\\Music";
-//    parseMP3("F:\\Music\\IU (아이유) - Gee&Lie&sorrysorry (Live).mp3");
-//System.out.println(    reader.getFileTypeId("mp3"));
-    getFileName(dirPath);
-    connector.close();
 
+    System.out.println("main");
+    String dirPath = "F:\\Music";
+    long startTime = System.currentTimeMillis();
+    AddFiles addFiles = new AddFiles(dirPath, connector, writter);
+    long endTime = System.currentTimeMillis();
+    System.out.printf("耗时：%.3fs\n",(endTime - startTime)/1000.0);
+    connector.close();
   }
 
-  private static void getFileName(String dirPath) {
+  private  void getFileName(String dirPath) {
+    connector.setAutoCommit(false);   // 35 - 1.571
     File file = new File(dirPath);    //获取其file对象
     func(file);
+    connector.setAutoCommit(true);
   }
 
-  private static void func(File file) {
+  private  void func(File file) {
     File[] fs = file.listFiles();
+    int cnt = 0;
     for (File f : fs) {
       if (f.isDirectory()) {
         func(f);
@@ -42,18 +44,24 @@ public class AddFiles {
       if (f.isFile()) {
         String fileName = f.getName();
         String filePath = f.getPath();
-        if (!filePath.endsWith("mp3")) {
-          continue;
+        if (filePath.endsWith("mp3")) {
+          System.out.println(fileName);
+          parseMP3(filePath);
+          cnt++;
         }
-        System.out.println(fileName);
-        parseMP3(filePath);
-
+      }
+      if (cnt == batch_size) {
+        connector.commit();
+        cnt = 0;
       }
 
     }
+    if (cnt > 0) {
+      connector.commit();
+    }
   }
 
-  private static void parseMP3(String filePath) {
+  private  void parseMP3(String filePath) {
     Parser_MP3 parser_mp3 = new Parser_MP3(filePath);
 
     String songName = parser_mp3.getSongName().trim();
@@ -75,20 +83,20 @@ public class AddFiles {
     String composer = parser_mp3.getComposer().trim();
     String genre = parser_mp3.getGenre().trim();
     Integer trackTotal = strToInteger(parser_mp3.getTrackTotal());
-    DB_Writer writter = new DB_Writer(connector);
-    writter.insertSong(songName, filePath, album, year, artist, BPM, sampleRate, bitRate,
+
+    this.writter.insertSong(songName, filePath, album, year, artist, BPM, sampleRate, bitRate,
         MPEG_Version, MPEG_Layer, channels, comments, fileSize, length,
         trackOrder, albumArtist, composer, genre, trackTotal);
   }
 
-  private static Integer strToInteger(String str) {
+  private  Integer strToInteger(String str) {
     if (str.equals("")) {
       return null;
     }
     return Integer.parseInt(str);
   }
 
-  private static Double strToDouble(String str) {
+  private  Double strToDouble(String str) {
     if (str.equals("")) {
       return null;
     }

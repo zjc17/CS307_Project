@@ -4,10 +4,12 @@ import java.sql.PreparedStatement;
 public class DB_Writer {
 
   private Connection connection;
+  private DB_Connector connector;
   private DB_Reader db_reader;
 
   public DB_Writer(DB_Connector connector) {
     this.connection = connector.getConn();
+    this.connector = connector;
     this.db_reader = new DB_Reader(connector, this);
   }
 
@@ -336,7 +338,7 @@ public class DB_Writer {
     try {
       /* INSERT */
       String sql = "INSERT INTO playlist_has_song (playlist_id, song_id, \"order\")\n"
-          + "VALUES (?, ?, (SELECT count(playlist_id) cnt FROM playlist_has_song WHERE playlist_id = ?));";
+          + "VALUES (?, ?, (SELECT count(playlist_id) cnt FROM playlist_has_song WHERE playlist_id = ?))";
       PreparedStatement pstmt = connection.prepareStatement(sql);
       pstmt.setInt(1, playlistId);
       pstmt.setInt(2, songId);

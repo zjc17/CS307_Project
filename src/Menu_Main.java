@@ -6,9 +6,11 @@ public class Menu_Main {
 
   private DB_Writer writter;
   private DB_Reader reader;
+  private DB_Connector connector;
 
   public Menu_Main() {
-    DB_Connector connector = new DB_Connector();
+    this.connector = new DB_Connector();
+    connector.getConnection();
     this.writter = new DB_Writer(connector);
     this.reader = new DB_Reader(connector, writter);
 //    Menu();
@@ -19,16 +21,18 @@ public class Menu_Main {
     Scanner input = new Scanner(System.in);
     RUNNING:
     while (true) {
-      System.out.println("1.Artist\n"
-                        + "2.Album\n"
-                        + "3.Songs\n"
-                        + "4.PlayList\n"
-                        + "5.Search\n"
-                        + "6.添加新文件（文件路径或文件夹路径）\n"
-                        + "0.Exit\n");
+      System.out.println("1.Artist    "
+          + " 2.Album\n"
+          + "3.Songs    "
+          + "  4.PlayList\n"
+          + "5.Search   "
+          + "  6.AddNewFile (FilePath or Folder Path)\n"
+          + "0.Exit");
+      System.out.println("Please choose the number you want: ");
       int next = input.nextInt();
       switch (next) {
         case 0:
+          //  System.exit(0);
           break RUNNING;
         case 1:
           Menu_Artist menuArtist = new Menu_Artist(writter, reader);
@@ -43,11 +47,11 @@ public class Menu_Main {
           Menu_Playlist menuPlaylist = new Menu_Playlist(writter, reader);
           break;
         case 5:
-          // Search
+          Menu_Search menuSearch = new Menu_Search(writter,reader);
           break;
         case 6:
           String path = "F:\\Music";
-          AddFiles addFiles = new AddFiles(path);
+          AddFiles addFiles = new AddFiles(path, connector, writter);
           break;
         default:
       }
@@ -59,7 +63,8 @@ public class Menu_Main {
    * 用于播放音乐
    * @param musicPath 需要播放的音乐路径
    */
-  private void playSong(String musicPath) {
+
+  public static void playSong(String musicPath) {
     Scanner keyboard = new Scanner(System.in);
     Music_Player music_player = new Music_Player(musicPath);
     music_player.start();
@@ -79,9 +84,8 @@ public class Menu_Main {
   }
 
   public static void main(String[] args) {
-    System.out.println("Welcome to use ***!");
+    System.out.println("Welcome to use JIACHEN MUSIC MANAGER!");
     Menu_Main menuMain = new Menu_Main();
     menuMain.Menu();
-
   }
 }

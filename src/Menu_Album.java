@@ -9,7 +9,7 @@ public class Menu_Album {
   private int pageNum;
   private final int numPerPage = 5; // 若修改需要更改DE_Reader
   private Scanner input;
-
+  static  int all[]=new int[6];
   public Menu_Album(DB_Writer writter, DB_Reader reader) {
     this.writter = writter;
     this.reader = reader;
@@ -19,37 +19,45 @@ public class Menu_Album {
       /* 写你需要的方法再进行调用
        * 输出某个值 break 即可，
        */
-      System.out.println("Here is the list of all albums:");
       showAlbum();
-      System.out.println("Now choose index of the album you want or input 0 to go back to MainMenu");
-      int next = input.nextInt();
+      System.out.println("选中的Album展示完了，然后");
+      System.out.println("Now choose id of the song you want or input -1 to exit");
+      int next = all[input.nextInt()];
+      // System.out.println(next);
       switch (next) {
         case -1:
           System.exit(0);
-        case 0:
-          break IN_THIS_MENU;
         default:
+          break IN_THIS_MENU;
       }
     }
-    System.out.println("Menu_Album");
+    //  System.out.println("Menu_Album");
     input.close();
   }
 
   private void showAlbum() {
     this.pageNum = 0;
-
+    RUNNING:
     while (true) {
-      System.out.println("这是表头，你自己添加");
+      System.out.println("Page "+pageNum+"\nAlbum ID       Album Name          Rating");
       showAlbum(pageNum * numPerPage);
-      System.out.println("输入1下一页"
-                          + " 输入-1退出程序"
-                          + "输入0返回上一级菜单");
+      System.out.println("Input 1 to next page\n"
+          + "Input -1 to exit\n"
+          + "Input 0 to choose album on this page\n"
+          + "Input 2 to go back to main menu\n");
+      System.out.println("Please choose: ");
       int choose = input.nextInt();
-      RUNNING:
       switch (choose) {
+        case 2:
+          Menu_Main menuMain = new Menu_Main();
+          menuMain.Menu();
+          break RUNNING;
         case -1:
           System.exit(0);
         case 0:
+          System.out.println("Please choose the album you want on this page: ");
+          int album = input.nextInt();
+          showSongInAlbum(album);
           break RUNNING;
         case 1:
           pageNum++;
@@ -65,11 +73,14 @@ public class Menu_Album {
       if (resultSet.isClosed()) {
         return;
       } else {
+        int point=0;
         do {
+          point++;
           int id = resultSet.getInt("id");
+          all[point]=id;
           String name = resultSet.getString("name");
           int pic_id = resultSet.getInt("picture_id");
-          System.out.printf("%2d\t\t%20s\t\t%2d\n", id, name, pic_id);
+          System.out.printf("%2d\t\t%20s\t\t%2d\n", point, name, pic_id);
           resultSet.next();
         } while (!resultSet.isClosed());
       }

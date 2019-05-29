@@ -282,4 +282,83 @@ public class DB_Reader {
     }
     throw new IllegalStateException("Wrong: getArtistInfo");
   }
+
+  protected ResultSet getSongFromArtistId(int artistId, int offset) {
+    try {
+      String sql = "WITH singer AS (SELECT * FROM artist WHERE id = ?)\n"
+          + "SELECT song_id, s.name AS song_name\n"
+          + "FROM singer\n"
+          + "       INNER JOIN credit_with_song ON singer.credit_id = credit_with_song.credit_id\n"
+          + "       INNER JOIN song s on credit_with_song.song_id = s.id\n"
+          + "LIMIT 10 OFFSET ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, artistId);
+      pstmt.setInt(2, offset);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getSongFromArtistId: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getSongFromArtistId");
+  }
+
+  protected String getPlayPathFromSongId(int songId) {
+    try {
+      String sql = "SELECT file_path FROM song WHERE id = ?";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, songId);
+      ResultSet rs = pstmt.executeQuery();
+      rs.next();
+      if (rs.isClosed()) {
+        System.err.println("Invilid Input");
+        return null;
+      }
+      return rs.getString("file_path");
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getPlayPathFromSongId: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getPlayPathFromSongId");
+  }
+
+  protected ResultSet getSongFromPlaylistId(int playlistId) {
+    try {
+      String sql = "SELECT s.id,\n"
+                  + "       s.name,\n"
+                  + "       s.length,\n"
+                  + "       CAST(((s.length / 60) || ':' || (s.length % 60)) AS TEXT) AS length_in_minute,\n"
+                  + "       a.name                                                    AS album_name,\n"
+                  + "       g.name                                                    AS genre_name,\n"
+                  + "       s.rating,\n"
+                  + "       s.file_path,\n"
+                  + "       s.picture_id\n"
+                  + "FROM (SELECT *\n"
+                  + "      FROM song WHERE id\n"
+                  + "                        IN (SELECT song_id FROM playlist_has_song WHERE playlist_id = ?)\n"
+                  + "      ORDER BY \"order\") s\n"
+                  + "       INNER JOIN (SELECT name, id FROM album) a ON a.id = s.album_id\n"
+                  + "       INNER JOIN (SELECT song_id, genre_id, \"order\" AS genre_id FROM song_has_genre) sg\n"
+                  + "                  ON s.id = song_id\n"
+                  + "       INNER JOIN (SELECT name, id FROM genre) g ON g.id = sg.genre_id\n"
+                  + "ORDER BY CASE\n"
+                  + "           WHEN s.name_for_sort IS NOT NULL\n"
+                  + "             THEN s.name_for_sort\n"
+                  + "           ELSE s.name\n"
+                  + "           END";
+      PreparedStatement pstmt = connection.prepareStatement(sql);
+      pstmt.setInt(1, playlistId);
+      ResultSet rs = pstmt.executeQuery();
+      return rs;
+    } catch (Exception e) {
+      System.err.println(
+          "DB_Reader::getSongFromPlaylistId: " + this.getClass() + ": " + e.getClass().getName() + ": " + e
+              .getMessage());
+    }
+    throw new IllegalStateException("Wrong: getSongFromPlaylistId");
+  }
+
+
 }

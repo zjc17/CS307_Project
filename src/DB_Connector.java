@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DB_Connector {
 
@@ -14,21 +15,29 @@ public class DB_Connector {
 
   public DB_Connector() {
     this.conn = null;
-    this.getConnection();
   }
 
   public void getConnection() {
     String url = "jdbc:sqlite:" + DATABASE_PATH;
+    System.out.println("Database Connecting");
     try {
       Class.forName("org.sqlite.JDBC");
       this.conn = DriverManager.getConnection(url);
       stateCode = 0;
-//      connection.setAutoCommit(false);
+      System.out.println("Database Connectted");
     } catch (Exception e) {
       stateCode = 1;
       System.err.println(this.getClass() + ": " + e.getClass().getName() + ": " + e.getMessage());
       System.exit(0);
     }
+  }
+
+  public void setAutoCommit(boolean isAutoCommit) {
+   try {
+     this.conn.setAutoCommit(isAutoCommit);
+   } catch (SQLException e) {
+     System.err.println("Error in DB_Connector::setAutoCommit");
+   }
   }
 
   public Connection getConn() {

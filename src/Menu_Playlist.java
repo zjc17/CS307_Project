@@ -1,5 +1,6 @@
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu_Playlist {
@@ -9,7 +10,8 @@ public class Menu_Playlist {
   private DB_Reader reader;
   private Scanner input;
   private PlayList[] curPlylist = new PlayList[numPerPage];
-
+  public static ArrayList all=new  ArrayList<Integer>();
+  public static int point=0;
   public Menu_Playlist(DB_Writer writter, DB_Reader reader) {
 
     this.writter = writter;
@@ -20,19 +22,26 @@ public class Menu_Playlist {
       /* 写你需要的方法再进行调用
        * 输出某个值 break 即可，
        */
-      System.out.println("Here is the list of all PlayLists:");
       showPlaylist();
-      System.out.println("Now choose index of the PlayList you want\n"
-                        + "Input -1 to exit\n"
-                        + "Input 0 to go back to MainMenu");
+      System.out.println("Input the Id of the PlayList you want\n"
+          + "Input -1 to exit\n"
+          + "Input 0 to go back to MainMenu\n"
+          +"Input 2 to edit playList");
       int next = input.nextInt();
       switch (next) {
         case -1:
           System.exit(0);
         case 0:
+          Menu_Main menuMain = new Menu_Main();
+          menuMain.Menu();
           break IN_THIS_MENU;
-        default: //展示歌单
+        case 2:
+          editPlayList();
+          break IN_THIS_MENU;
+        case 3:
 
+        default: //展示歌单
+          showSongInPlaylist(next,0);
       }
     }
     System.out.println("退出PlaylistMenu");
@@ -51,21 +60,28 @@ public class Menu_Playlist {
    * *********************************************************/
 
   public void editPlayList() {
-    System.out.println("1. Add new PlayList\n" + "2.Delete existing playList");
-    int operation = input.nextInt();
+    System.out.println("1. Add new PlayList\n" + "2. Delete existing playList");
+    int operation =input.nextInt();
     if (operation == 1) {
       //add new
-
+      System.out.println("Input the name: ");
+      String newname = input.next();
+      //all.add(newname);
+      addPlaylist(newname);
     } else if (operation == 2) {
+      System.out.println("Input the id of PlayList you want to delete");
       if (false) { // check number
         System.err.println("The PlayList does not exist. Deletion failed");
       }
-      int todelete = input.nextInt();
+      int todelete = (Integer)all.get(input.nextInt()-1);
+      System.out.println(todelete);
+      deletePlaylist(todelete);
 
 
-        showPlaylist();
 
     }
+    //  showPlaylist();
+    Menu_Playlist menuPlaylist = new Menu_Playlist(writter, reader);
   }
 
   /**
@@ -78,16 +94,21 @@ public class Menu_Playlist {
   }
 
   private void showPlaylist() {
+    System.out.println("PlayList: ");
     ResultSet resultSet = reader.getPlaylistInfo();
     try {
       resultSet.next();
       if (resultSet.isClosed()) {
         return;
       } else {
+        point=0;
         do {
+          //  point=0;
+          point++;
           int id = resultSet.getInt("id");
+          all.add(id);
           String playlistName = resultSet.getString("name");
-          System.out.printf("%2d\t%30s\n", id, playlistName);
+          System.out.printf("%2d\t%30s\n", point, playlistName);
           resultSet.next();
         } while (!resultSet.isClosed());
       }
@@ -102,6 +123,7 @@ public class Menu_Playlist {
    * @param playlistId 需要展示的播放列表id
    * @param offset 10*(page-1)
    */
+
   private void showSongInPlaylist(int playlistId, int offset) {
     ResultSet resultSet = reader.getSongInPlaylist(playlistId, offset);
     try {
