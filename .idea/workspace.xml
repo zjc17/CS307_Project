@@ -102,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Menu_Song.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+            <state relative-caret-position="1102">
+              <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#showSong#1;class#Menu_Song#0" />
@@ -117,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_4.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="932">
-              <caret line="279" column="39" lean-forward="true" selection-start-line="279" selection-start-column="39" selection-end-line="279" selection-end-column="39" />
+            <state relative-caret-position="5301">
+              <caret line="279" column="39" selection-start-line="279" selection-start-column="39" selection-end-line="279" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -167,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DB_Connector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
+            <state relative-caret-position="38">
               <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -181,7 +181,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Menu_Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1862">
+            <state relative-caret-position="1824">
               <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -285,7 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,7 +306,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -446,11 +446,12 @@
       <workItem from="1559015604902" duration="7659000" />
       <workItem from="1559028334601" duration="9998000" />
       <workItem from="1559041903499" duration="610000" />
+      <workItem from="1559184237412" duration="597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125783000" />
+    <option name="totallyTimeSpent" value="126380000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,8 +465,8 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.65904367" visible="true" weight="0.21215352" />
-      <window_info id="Structure" order="1" sideWeight="0.34095633" side_tool="true" visible="true" weight="0.21215352" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.65705127" visible="true" weight="0.21428572" />
+      <window_info id="Structure" order="1" sideWeight="0.3429487" side_tool="true" visible="true" weight="0.21428572" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -483,7 +484,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5042644" side_tool="true" weight="0.35135135" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="12" sideWeight="0.5042644" side_tool="true" visible="true" weight="0.35135135" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.4978678" weight="0.2962578" />
       <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.4978678" weight="0.29417878" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -784,6 +785,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DB_Reader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="197" column="28" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu_Song.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#showSong#1;class#Menu_Song#0" />
+            <element signature="docComment;method#ratingForSong#0;class#Menu_Song#0" />
+            <element signature="method#ratingForSong#0;class#Menu_Song#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_4.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5301">
+          <caret line="279" column="39" selection-start-line="279" selection-start-column="39" selection-end-line="279" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu_Artist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -817,7 +848,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DB_Connector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
+        <state relative-caret-position="38">
           <caret line="6" column="25" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -827,40 +858,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d2c7a3e9-0e6d-4ef3-a443-9d209373d752/console_4.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="279" column="39" lean-forward="true" selection-start-line="279" selection-start-column="39" selection-end-line="279" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu_Song.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#showSong#1;class#Menu_Song#0" />
-            <element signature="docComment;method#ratingForSong#0;class#Menu_Song#0" />
-            <element signature="method#ratingForSong#0;class#Menu_Song#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu_Search.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1862">
+        <state relative-caret-position="1824">
           <caret line="98" selection-start-line="98" selection-end-line="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DB_Reader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="197" column="28" selection-start-line="197" selection-start-column="12" selection-end-line="197" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
